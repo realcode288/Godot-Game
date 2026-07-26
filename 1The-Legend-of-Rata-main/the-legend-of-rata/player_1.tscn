@@ -51,7 +51,7 @@ position = Vector2(2, -8)
 shape = SubResource("CircleShape2D_vcs13")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player" unique_id=315402761]
-position = Vector2(2, -14)
+position = Vector2(2, -12)
 sprite_frames = SubResource("SpriteFrames_vcs13")
 animation = &"idle"
 autoplay = "idle"

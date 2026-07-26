@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bprjfx880ymba"]
+
+[ext_resource type="AudioStream" uid="uid://b7tgno1u4bd7m" path="res://assets/Labyrinth-of-Lost-Dreams-MP3(chosic.com).mp3" id="1_05ggv"]
+
+[node name="Music" type="AudioStreamPlayer2D" unique_id=863140673]
+stream = ExtResource("1_05ggv")
+autoplay = true
