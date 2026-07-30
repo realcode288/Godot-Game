@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cnio3dulednbi"]
 
-[ext_resource type="PackedScene" uid="uid://cpnc1ksay5van" path="res://player_1.tscn" id="1_80nbo"]
 [ext_resource type="Texture2D" uid="uid://k0dyrodb1l57" path="res://assets/world_tileset.png" id="2_e2o6t"]
+[ext_resource type="PackedScene" uid="uid://btk8xa3gru6ov" path="res://scenes/player.tscn" id="3_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://d0v400yt5e1nx" path="res://scenes/platform.tscn" id="3_feb5d"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vcs13"]
@@ -293,12 +293,6 @@ _data = {
 
 [node name="Game" type="Node2D" unique_id=598161988]
 
-[node name="Player 1" parent="." unique_id=1576103962 instance=ExtResource("1_80nbo")]
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=898215041]
-position = Vector2(1, -12)
-zoom = Vector2(4, 4)
-
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=872799332]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=478428199]
@@ -359,3 +353,5 @@ position = Vector2(2726, -801)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Platform8" unique_id=2107175666]
 libraries/ = SubResource("AnimationLibrary_vef74")
 autoplay = &"move platform 5"
+
+[node name="player" parent="." unique_id=1126700085 instance=ExtResource("3_fc0e3")]
