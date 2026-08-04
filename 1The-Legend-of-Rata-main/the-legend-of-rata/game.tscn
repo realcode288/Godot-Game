@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://k0dyrodb1l57" path="res://assets/world_tileset.png" id="2_e2o6t"]
 [ext_resource type="PackedScene" uid="uid://btk8xa3gru6ov" path="res://scenes/player.tscn" id="3_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://d0v400yt5e1nx" path="res://scenes/platform.tscn" id="3_feb5d"]
+[ext_resource type="PackedScene" uid="uid://3t0pqsudu3l0" path="res://scenes/checkpoint.tscn" id="4_fc0e3"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vcs13"]
 
@@ -434,3 +435,15 @@ position = Vector2(0, -10)
 
 [node name="Platform9" parent="." unique_id=1135174530 instance=ExtResource("3_feb5d")]
 position = Vector2(1860, -557)
+
+[node name="Checkpoint" parent="." unique_id=810634183 instance=ExtResource("4_fc0e3")]
+position = Vector2(671, -247)
+
+[node name="Checkpoint2" parent="." unique_id=632814241 instance=ExtResource("4_fc0e3")]
+position = Vector2(1406, -581)
+
+[node name="Checkpoint3" parent="." unique_id=1965253155 instance=ExtResource("4_fc0e3")]
+position = Vector2(2261, -663)
+
+[node name="Checkpoint4" parent="." unique_id=514134022 instance=ExtResource("4_fc0e3")]
+position = Vector2(1519, -1031)
