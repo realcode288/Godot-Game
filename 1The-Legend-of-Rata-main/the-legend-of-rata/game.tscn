@@ -473,13 +473,13 @@ position = Vector2(0, -10)
 position = Vector2(1860, -557)
 
 [node name="Checkpoint" parent="." unique_id=810634183 instance=ExtResource("4_fc0e3")]
-position = Vector2(671, -247)
+position = Vector2(670, -237)
 
 [node name="Checkpoint2" parent="." unique_id=632814241 instance=ExtResource("4_fc0e3")]
-position = Vector2(1406, -581)
+position = Vector2(1358, -573)
 
 [node name="Checkpoint3" parent="." unique_id=1965253155 instance=ExtResource("4_fc0e3")]
-position = Vector2(2261, -663)
+position = Vector2(2267, -653)
 
 [node name="Checkpoint4" parent="." unique_id=514134022 instance=ExtResource("4_fc0e3")]
-position = Vector2(1519, -1031)
+position = Vector2(1517, -1022)

@@ -1,20 +1,20 @@
 [gd_scene format=3 uid="uid://3t0pqsudu3l0"]
 
 [ext_resource type="Script" uid="uid://d2xu8ripjvdit" path="res://scenes/checkpoint.gd" id="1_ywqth"]
-[ext_resource type="Texture2D" uid="uid://vlhwmjtwt2eb" path="res://assets/quandale dingle.jpg" id="2_vsimk"]
+[ext_resource type="Texture2D" uid="uid://3a0yel2fqqwl" path="res://assets/Checkpoint Flag.png" id="2_ywqth"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lg1c5"]
-size = Vector2(14, 20)
+size = Vector2(23, 26)
 
 [node name="Checkpoint" type="Area2D" unique_id=810634183]
 script = ExtResource("1_ywqth")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=515465488]
-position = Vector2(11, -12)
+position = Vector2(1.5, 1)
 shape = SubResource("RectangleShape2D_lg1c5")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1034296814]
-texture = ExtResource("2_vsimk")
+texture = ExtResource("2_ywqth")
 
 [node name="SpawnPoint" type="Marker2D" parent="." unique_id=1618814144]
 
