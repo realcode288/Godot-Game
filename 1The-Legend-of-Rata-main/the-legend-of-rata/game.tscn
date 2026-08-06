@@ -403,6 +403,44 @@ _data = {
 &"istg platform 8": SubResource("Animation_lc2xo")
 }
 
+[sub_resource type="Animation" id="Animation_7sc4i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(737, -1255)]
+}
+
+[sub_resource type="Animation" id="Animation_80cx4"]
+resource_name = "platform into grass"
+length = 2.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(737, -1255), Vector2(737, -1461)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e8heu"]
+_data = {
+&"RESET": SubResource("Animation_7sc4i"),
+&"platform into grass": SubResource("Animation_80cx4")
+}
+
 [node name="Game" type="Node2D" unique_id=598161988]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=872799332]
@@ -483,3 +521,10 @@ position = Vector2(2267, -653)
 
 [node name="Checkpoint4" parent="." unique_id=514134022 instance=ExtResource("4_fc0e3")]
 position = Vector2(1517, -1022)
+
+[node name="Platform10" parent="." unique_id=347263075 instance=ExtResource("3_feb5d")]
+position = Vector2(737, -1255)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platform10" unique_id=249839737]
+libraries/ = SubResource("AnimationLibrary_e8heu")
+autoplay = &"platform into grass"
