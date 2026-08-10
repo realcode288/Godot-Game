@@ -1,10 +1,18 @@
 [gd_scene format=3 uid="uid://btk8xa3gru6ov"]
 
 [ext_resource type="Script" uid="uid://bjde5gtpbkhjn" path="res://player.gd" id="1_4flbx"]
+[ext_resource type="Texture2D" uid="uid://bhuutr3mbksiw" path="res://assets/Idle_white_background-removebg-preview.png" id="2_g2els"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qhqgy"]
+atlas = ExtResource("2_g2els")
+region = Rect2(0, 166, 125, 166)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lg1c5"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qhqgy")
+}],
 "loop": 1,
 "name": &"idle",
 "speed": 7.0
@@ -16,7 +24,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lg1c5"]
-size = Vector2(10, 16)
+size = Vector2(9, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6g1ex"]
 size = Vector2(13, 14)
@@ -25,12 +33,14 @@ size = Vector2(13, 14)
 script = ExtResource("1_4flbx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=730563548]
+position = Vector2(-0.5, 3.9999998)
+scale = Vector2(0.11999999, 0.10843373)
 sprite_frames = SubResource("SpriteFrames_lg1c5")
 animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1379958845]
-position = Vector2(0, 3)
+position = Vector2(-0.5, 3)
 shape = SubResource("RectangleShape2D_lg1c5")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=724658244]

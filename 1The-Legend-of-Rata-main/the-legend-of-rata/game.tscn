@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://d0v400yt5e1nx" path="res://scenes/platform.tscn" id="3_feb5d"]
 [ext_resource type="PackedScene" uid="uid://3t0pqsudu3l0" path="res://scenes/checkpoint.tscn" id="4_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://xhpkr04q8hql" path="res://scenes/grass_platform.tscn" id="5_7jktm"]
+[ext_resource type="Texture2D" uid="uid://blws217rs0erk" path="res://assets/craftpix-net-672461-free-swamp-game-tileset-pixel-art/3 Objects/Pointers/1.png" id="6_ryrav"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vcs13"]
 
@@ -823,10 +824,10 @@ position = Vector2(670, -237)
 position = Vector2(1358, -573)
 
 [node name="Checkpoint3" parent="." unique_id=1965253155 instance=ExtResource("4_fc0e3")]
-position = Vector2(2267, -653)
+position = Vector2(2258, -653)
 
 [node name="Checkpoint4" parent="." unique_id=514134022 instance=ExtResource("4_fc0e3")]
-position = Vector2(1517, -1022)
+position = Vector2(1512, -1020)
 
 [node name="Platform10" parent="." unique_id=347263075 instance=ExtResource("3_feb5d")]
 position = Vector2(737, -1255)
@@ -836,7 +837,7 @@ libraries/ = SubResource("AnimationLibrary_e8heu")
 autoplay = &"platform into grass"
 
 [node name="Checkpoint5" parent="." unique_id=615476778 instance=ExtResource("4_fc0e3")]
-position = Vector2(848, -1485)
+position = Vector2(848, -1484)
 
 [node name="Checkpoint6" parent="." unique_id=395765156 instance=ExtResource("4_fc0e3")]
 position = Vector2(2621, -1772)
@@ -896,3 +897,7 @@ position = Vector2(4092, -1920)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Grass Platform8" unique_id=1701530269]
 libraries/ = SubResource("AnimationLibrary_qhcbd")
 autoplay = &"8 gp move u&d"
+
+[node name="1" type="Sprite2D" parent="." unique_id=1493413945]
+position = Vector2(56, -9)
+texture = ExtResource("6_ryrav")
