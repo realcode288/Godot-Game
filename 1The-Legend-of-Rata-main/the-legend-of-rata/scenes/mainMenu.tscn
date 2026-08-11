@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://xxg4spg5fuwb"]
+
+[ext_resource type="Script" uid="uid://byqmqblfrc8vi" path="res://mainMenu.gd" id="1_qkhwq"]
+
+[node name="Control" type="Control" unique_id=1063297159]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qkhwq")
+
+[node name="Button" type="Button" parent="." unique_id=1292372046]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -88.0
+offset_top = -33.0
+offset_right = 86.5
+offset_bottom = 32.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Play"
+
+[node name="Label" type="Label" parent="." unique_id=1270207767]
+layout_mode = 0
+offset_left = 135.0
+offset_top = 148.0
+offset_right = 1075.0
+offset_bottom = 265.0
+theme_override_font_sizes/font_size = 27
+text = "You've built a canoe and ventured off to his island to take revenge. 
+Beware, he awaits you and has built dangerous terrain on the island.
+                        Navigate the island and avenge your father!"
+
+[node name="Label2" type="Label" parent="." unique_id=1717409]
+layout_mode = 0
+offset_left = 132.0
+offset_top = 107.0
+offset_right = 1054.0
+offset_bottom = 152.0
+theme_override_font_sizes/font_size = 27
+text = "Your name is Rata and your father has been killed by a terrifying ogre."
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
