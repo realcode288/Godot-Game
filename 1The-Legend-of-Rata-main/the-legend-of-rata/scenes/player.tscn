@@ -3,15 +3,15 @@
 [ext_resource type="Script" uid="uid://bjde5gtpbkhjn" path="res://player.gd" id="1_4flbx"]
 [ext_resource type="Texture2D" uid="uid://bhuutr3mbksiw" path="res://assets/Idle_white_background-removebg-preview.png" id="2_g2els"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qhqgy"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2els"]
 atlas = ExtResource("2_g2els")
-region = Rect2(0, 166, 125, 166)
+region = Rect2(200, 166, 100, 166)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lg1c5"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qhqgy")
+"texture": SubResource("AtlasTexture_g2els")
 }],
 "loop": 1,
 "name": &"idle",
