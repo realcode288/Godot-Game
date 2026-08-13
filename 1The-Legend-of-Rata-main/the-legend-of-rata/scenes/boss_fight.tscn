@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cxpc5m4qe1aqn"]
+
+[node name="Boss Fight" type="Node2D" unique_id=1784097186]
+
+[node name="TileMap" type="TileMap" parent="." unique_id=1609985051]
+format = 2
