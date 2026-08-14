@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://b6ni1tuf7pc4k"]
+
+[ext_resource type="Script" uid="uid://bpq1rxmw6nye4" path="res://boss_state.gd" id="1_0bnu1"]
+[ext_resource type="Script" uid="uid://cskgcv02ukxsq" path="res://state_machine.gd" id="2_6xxrv"]
+[ext_resource type="Texture2D" uid="uid://cds0fmr6l8ypp" path="res://assets/Boss sprite sheet 1.png" id="2_lnbgr"]
+[ext_resource type="Script" uid="uid://givw6sp5w2uo" path="res://dash_state.gd" id="3_skx2t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o1i15"]
+atlas = ExtResource("2_lnbgr")
+region = Rect2(132, 0, 66, 77)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_we8h1"]
+atlas = ExtResource("2_lnbgr")
+region = Rect2(198, 0, 66, 77)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kvofc"]
+atlas = ExtResource("2_lnbgr")
+region = Rect2(264, 0, 66, 77)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ef0k6"]
+atlas = ExtResource("2_lnbgr")
+region = Rect2(330, 0, 66, 77)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ry61v"]
+atlas = ExtResource("2_lnbgr")
+region = Rect2(396, 0, 66, 77)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kles1"]
+atlas = ExtResource("2_lnbgr")
+region = Rect2(462, 0, 66, 77)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lnbgr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o1i15")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_we8h1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kvofc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ef0k6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ry61v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kles1")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 3.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o1i15"]
+size = Vector2(38, 39)
+
+[node name="Boss" type="CharacterBody2D" unique_id=1688295309]
+script = ExtResource("1_0bnu1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2071939406]
+sprite_frames = SubResource("SpriteFrames_lnbgr")
+animation = &"walk"
+frame_progress = 0.24254516
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=329403262]
+position = Vector2(-15, 3.5)
+shape = SubResource("RectangleShape2D_o1i15")
+
+[node name="StateMachine" type="Node" parent="." unique_id=87136762]
+script = ExtResource("2_6xxrv")
+
+[node name="IdleState" type="Node" parent="." unique_id=242411920]
+
+[node name="AttackLaserState" type="Node" parent="." unique_id=2011101688]
+
+[node name="DashState" type="Node" parent="." unique_id=658223093]
+script = ExtResource("3_skx2t")
+
+[node name="StateTimer" type="Timer" parent="." unique_id=1388501208]
