@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://blws217rs0erk" path="res://assets/craftpix-net-672461-free-swamp-game-tileset-pixel-art/3 Objects/Pointers/1.png" id="6_ryrav"]
 [ext_resource type="PackedScene" uid="uid://c30bhi8gmq70j" path="res://scenes/killzone.tscn" id="7_eow3j"]
 [ext_resource type="PackedScene" uid="uid://bprjfx880ymba" path="res://scenes/music.tscn" id="8_j5wjh"]
+[ext_resource type="Texture2D" uid="uid://cqwdtlse4m8oi" path="res://assets/Portal asset.png" id="9_vef74"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_feb5d"]
 texture = ExtResource("2_e2o6t")
@@ -914,5 +915,10 @@ position = Vector2(-54, 76)
 shape = SubResource("WorldBoundaryShape2D_lwrrw")
 
 [node name="Music" parent="." unique_id=1833617249 instance=ExtResource("8_j5wjh")]
+
+[node name="PortalAsset" type="Sprite2D" parent="." unique_id=2031678276]
+position = Vector2(4520.0005, -1775.0001)
+scale = Vector2(1.6249962, 1.6250014)
+texture = ExtResource("9_vef74")
 
 [editable path="player"]
