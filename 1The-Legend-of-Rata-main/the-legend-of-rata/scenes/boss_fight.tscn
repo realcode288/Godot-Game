@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://k0dyrodb1l57" path="res://assets/world_tileset.png" id="3_67f06"]
 [ext_resource type="PackedScene" uid="uid://3kx1n5yy0p6y" path="res://scenes/boss_platform.tscn" id="4_67f06"]
 [ext_resource type="PackedScene" uid="uid://b6ni1tuf7pc4k" path="res://boss.tscn" id="5_31neg"]
+[ext_resource type="PackedScene" uid="uid://btk8xa3gru6ov" path="res://scenes/player.tscn" id="6_31neg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_31neg"]
 texture = ExtResource("1_7ydql")
@@ -387,7 +388,9 @@ texture = ExtResource("3_67f06")
 2:0/0 = 0
 3:0/0 = 0
 4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 6:0/0 = 0
 7:0/0 = 0
 8:0/0 = 0
@@ -399,7 +402,9 @@ texture = ExtResource("3_67f06")
 2:1/0 = 0
 3:1/0 = 0
 4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 5:1/0 = 0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 6:1/0 = 0
 7:1/0 = 0
 8:1/0 = 0
@@ -511,6 +516,7 @@ texture = ExtResource("3_67f06")
 3:15/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_bcg22"]
+physics_layer_0/collision_layer = 1
 sources/3 = SubResource("TileSetAtlasSource_31neg")
 sources/4 = SubResource("TileSetAtlasSource_x4w2v")
 sources/5 = SubResource("TileSetAtlasSource_2tdpq")
@@ -530,3 +536,6 @@ position = Vector2(274, -46)
 
 [node name="Boss" parent="." unique_id=1688295309 instance=ExtResource("5_31neg")]
 position = Vector2(293, -69)
+
+[node name="player" parent="." unique_id=1126700085 instance=ExtResource("6_31neg")]
+position = Vector2(-199, -9)

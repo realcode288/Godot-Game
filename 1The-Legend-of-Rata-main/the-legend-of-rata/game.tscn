@@ -6,9 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://3t0pqsudu3l0" path="res://scenes/checkpoint.tscn" id="4_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://xhpkr04q8hql" path="res://scenes/grass_platform.tscn" id="5_7jktm"]
 [ext_resource type="Texture2D" uid="uid://blws217rs0erk" path="res://assets/craftpix-net-672461-free-swamp-game-tileset-pixel-art/3 Objects/Pointers/1.png" id="6_ryrav"]
-[ext_resource type="PackedScene" uid="uid://c30bhi8gmq70j" path="res://scenes/killzone.tscn" id="7_eow3j"]
 [ext_resource type="PackedScene" uid="uid://bprjfx880ymba" path="res://scenes/music.tscn" id="8_j5wjh"]
-[ext_resource type="Texture2D" uid="uid://cqwdtlse4m8oi" path="res://assets/Portal asset.png" id="9_vef74"]
+[ext_resource type="PackedScene" uid="uid://cn2wfvybl33to" path="res://scenes/portal.tscn" id="9_vef74"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_feb5d"]
 texture = ExtResource("2_e2o6t")
@@ -747,8 +746,6 @@ _data = {
 &"RESET": SubResource("Animation_x5p1p")
 }
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lwrrw"]
-
 [node name="Game" type="Node2D" unique_id=598161988]
 
 [node name="TileMap" type="TileMap" parent="." unique_id=1158737268]
@@ -908,17 +905,9 @@ position = Vector2(4143, -1995)
 [node name="Checkpoint8" parent="." unique_id=1155043071 instance=ExtResource("4_fc0e3")]
 position = Vector2(4933, -2094)
 
-[node name="Killzone" parent="." unique_id=489458429 instance=ExtResource("7_eow3j")]
-position = Vector2(-54, 76)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=1527427893]
-shape = SubResource("WorldBoundaryShape2D_lwrrw")
-
 [node name="Music" parent="." unique_id=1833617249 instance=ExtResource("8_j5wjh")]
 
-[node name="PortalAsset" type="Sprite2D" parent="." unique_id=2031678276]
-position = Vector2(4520.0005, -1775.0001)
-scale = Vector2(1.6249962, 1.6250014)
-texture = ExtResource("9_vef74")
+[node name="Portal" parent="." unique_id=1932183458 instance=ExtResource("9_vef74")]
+position = Vector2(4520, -1767)
 
 [editable path="player"]
