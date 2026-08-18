@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://xhpkr04q8hql" path="res://scenes/grass_platform.tscn" id="5_7jktm"]
 [ext_resource type="Texture2D" uid="uid://blws217rs0erk" path="res://assets/craftpix-net-672461-free-swamp-game-tileset-pixel-art/3 Objects/Pointers/1.png" id="6_ryrav"]
 [ext_resource type="PackedScene" uid="uid://bprjfx880ymba" path="res://scenes/music.tscn" id="8_j5wjh"]
+[ext_resource type="PackedScene" uid="uid://dx2r6pdhoagq1" path="res://kill_zone.tscn" id="9_hve3p"]
 [ext_resource type="PackedScene" uid="uid://cn2wfvybl33to" path="res://scenes/portal.tscn" id="9_vef74"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_feb5d"]
@@ -909,5 +910,8 @@ position = Vector2(4933, -2092)
 
 [node name="Portal" parent="." unique_id=1932183458 instance=ExtResource("9_vef74")]
 position = Vector2(4521, -1766)
+
+[node name="KillZone" parent="." unique_id=632059254 instance=ExtResource("9_hve3p")]
+position = Vector2(-2, 106)
 
 [editable path="player"]

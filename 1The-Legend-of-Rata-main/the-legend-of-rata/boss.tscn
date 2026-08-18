@@ -5,26 +5,31 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lnbgr"]
 atlas = ExtResource("2_lnbgr")
-region = Rect2(469, 77, 67, 77)
+region = Rect2(201, 154, 67, 77)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o1i15"]
 atlas = ExtResource("2_lnbgr")
-region = Rect2(402, 77, 67, 77)
+region = Rect2(268, 154, 67, 77)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_we8h1"]
 atlas = ExtResource("2_lnbgr")
-region = Rect2(335, 77, 67, 77)
+region = Rect2(335, 154, 67, 77)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kvofc"]
 atlas = ExtResource("2_lnbgr")
-region = Rect2(268, 77, 67, 77)
+region = Rect2(402, 154, 67, 77)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ef0k6"]
 atlas = ExtResource("2_lnbgr")
-region = Rect2(201, 77, 67, 77)
+region = Rect2(469, 154, 67, 77)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lnbgr"]
 animations = [{
+"frames": [],
+"loop": 1,
+"name": &"new_animation",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_lnbgr")
@@ -42,7 +47,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_ef0k6")
 }],
 "loop": 1,
-"name": &"walk",
+"name": &"sneer",
 "speed": 3.0
 }]
 
@@ -54,12 +59,12 @@ script = ExtResource("1_0bnu1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2071939406]
 sprite_frames = SubResource("SpriteFrames_lnbgr")
-animation = &"walk"
-frame = 2
-frame_progress = 0.6930153
+animation = &"sneer"
+frame = 4
+frame_progress = 0.20347972
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=329403262]
-position = Vector2(-3, 4)
+position = Vector2(5, 4)
 shape = SubResource("RectangleShape2D_o1i15")
 
 [node name="boss timer" type="Timer" parent="." unique_id=1388501208]
