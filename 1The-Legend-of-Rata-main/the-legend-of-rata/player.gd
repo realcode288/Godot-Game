@@ -103,13 +103,20 @@ func update_animations() -> void:
 func start_attack() -> void: 
 	is_attacking = true
 	
+	# Wait and enable the damage hitbox
 	await get_tree().create_timer(0.1).timeout 
 	if hitbox_shape and is_attacking:
 		hitbox_shape.disabled = false
 	
+	# Wait and disable the damage hitbox
 	await get_tree().create_timer(0.15).timeout 
 	if hitbox_shape:
 		hitbox_shape.disabled = true
+		
+	# FAIL-SAFE: Automatically clear attack state if animation signal fails
+	await get_tree().create_timer(0.1).timeout
+	if is_attacking:
+		is_attacking = false
 
 func take_damage() -> void:
 	# Ignore the hit if already hurt or already processing invincibility frames
@@ -151,3 +158,16 @@ func _unhandled_input(event: InputEvent) -> void:
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and event.keycode == KEY_K:
 		take_damage()
+		
+func die() -> void:
+	print("Player died!")
+	
+	# Check if the player has touched a checkpoint yet
+	if GameManager.last_checkpoint_position != Vector2.ZERO:
+		# Teleport player to the checkpoint marker location
+		global_position = GameManager.last_checkpoint_position
+		# Stop all movement momentum so you don't instantly fly off a ledge
+		velocity = Vector2.ZERO 
+	else:
+		# No checkpoint found: restart the entire scene from scratch
+		get_tree().reload_current_scene()
