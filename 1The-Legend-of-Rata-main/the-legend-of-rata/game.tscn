@@ -946,7 +946,7 @@ position = Vector2(4933, -2092)
 [node name="Music" parent="." unique_id=1833617249 instance=ExtResource("8_j5wjh")]
 
 [node name="KillZone" parent="." unique_id=632059254 instance=ExtResource("9_hve3p")]
-position = Vector2(-2, 106)
+position = Vector2(-1, 128)
 
 [node name="Grass Platform9" parent="." unique_id=223748580 instance=ExtResource("5_7jktm")]
 position = Vector2(4444, -1765)
