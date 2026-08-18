@@ -48,7 +48,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ef0k6")
 }],
-"loop": 0,
+"loop": 1,
 "name": &"sneer",
 "speed": 3.0
 }]
@@ -61,7 +61,9 @@ script = ExtResource("1_0bnu1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2071939406]
 sprite_frames = SubResource("SpriteFrames_lnbgr")
-animation = &"new_animation"
+animation = &"sneer"
+frame = 4
+frame_progress = 0.20347972
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=329403262]
 position = Vector2(5, 4)
