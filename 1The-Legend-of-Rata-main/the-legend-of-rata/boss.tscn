@@ -1,9 +1,7 @@
 [gd_scene format=3 uid="uid://b6ni1tuf7pc4k"]
 
 [ext_resource type="Script" uid="uid://bpq1rxmw6nye4" path="res://boss_state.gd" id="1_0bnu1"]
-[ext_resource type="Script" uid="uid://cskgcv02ukxsq" path="res://state_machine.gd" id="2_6xxrv"]
 [ext_resource type="Texture2D" uid="uid://cds0fmr6l8ypp" path="res://assets/Boss sprite sheet 1.png" id="2_lnbgr"]
-[ext_resource type="Script" uid="uid://givw6sp5w2uo" path="res://dash_state.gd" id="3_skx2t"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lnbgr"]
 atlas = ExtResource("2_lnbgr")
@@ -64,14 +62,4 @@ frame_progress = 0.6930153
 position = Vector2(-3, 4)
 shape = SubResource("RectangleShape2D_o1i15")
 
-[node name="StateMachine" type="Node" parent="." unique_id=87136762]
-script = ExtResource("2_6xxrv")
-
-[node name="IdleState" type="Node" parent="." unique_id=242411920]
-
-[node name="AttackLaserState" type="Node" parent="." unique_id=2011101688]
-
-[node name="DashState" type="Node" parent="." unique_id=658223093]
-script = ExtResource("3_skx2t")
-
-[node name="StateTimer" type="Timer" parent="." unique_id=1388501208]
+[node name="boss timer" type="Timer" parent="." unique_id=1388501208]

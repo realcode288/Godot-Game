@@ -2,7 +2,7 @@ extends Area2D
 
 const SPEED = 200.0
 
-var direction = Vector2.LEFT
+var direction = Vector2.LEFT  # Boss shoots left by default
 var is_deflected = false
 var is_deflectable = false  # True only if it's the 3rd fireball
 
