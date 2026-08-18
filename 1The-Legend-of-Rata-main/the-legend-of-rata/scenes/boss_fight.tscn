@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://dhkkj2086h2wq" path="res://assets/free_volcano_tileset/images/Tile_5.png" id="1_7ydql"]
 [ext_resource type="Texture2D" uid="uid://csdgfel4pnocf" path="res://assets/free_volcano_tileset/images/Tile_27.png" id="2_85w88"]
 [ext_resource type="Texture2D" uid="uid://k0dyrodb1l57" path="res://assets/world_tileset.png" id="3_67f06"]
-[ext_resource type="PackedScene" uid="uid://3kx1n5yy0p6y" path="res://scenes/boss_platform.tscn" id="4_67f06"]
-[ext_resource type="PackedScene" uid="uid://b6ni1tuf7pc4k" path="res://boss.tscn" id="5_31neg"]
+[ext_resource type="PackedScene" path="res://scenes/boss_platform.tscn" id="4_67f06"]
+[ext_resource type="PackedScene" uid="uid://b6ni1tuf7pc4k" path="res://scenes/boss.tscn" id="5_31neg"]
 [ext_resource type="PackedScene" uid="uid://btk8xa3gru6ov" path="res://scenes/player.tscn" id="6_31neg"]
 [ext_resource type="Texture2D" uid="uid://b82nmeqilc6uu" path="res://assets/test fireball ogre.png" id="7_x4w2v"]
 
