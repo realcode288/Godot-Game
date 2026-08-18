@@ -29,10 +29,10 @@ text = "Play"
 
 [node name="Label" type="Label" parent="." unique_id=1270207767]
 layout_mode = 0
-offset_left = 135.0
-offset_top = 148.0
-offset_right = 1075.0
-offset_bottom = 265.0
+offset_left = 498.0
+offset_top = 368.0
+offset_right = 1438.0
+offset_bottom = 485.0
 theme_override_font_sizes/font_size = 27
 text = "You've built a canoe and ventured off to his island to take revenge. 
 Beware, he awaits you and has built dangerous terrain on the island.
@@ -40,10 +40,10 @@ Beware, he awaits you and has built dangerous terrain on the island.
 
 [node name="Label2" type="Label" parent="." unique_id=1717409]
 layout_mode = 0
-offset_left = 132.0
-offset_top = 107.0
-offset_right = 1054.0
-offset_bottom = 152.0
+offset_left = 485.0
+offset_top = 334.0
+offset_right = 1407.0
+offset_bottom = 379.0
 theme_override_font_sizes/font_size = 27
 text = "Your name is Rata and your father has been killed by a terrifying ogre."
 

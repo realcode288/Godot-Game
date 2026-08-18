@@ -166,7 +166,7 @@ func die() -> void:
 	if GameManager.last_checkpoint_position != Vector2.ZERO:
 		# Teleport player to the checkpoint marker location
 		global_position = GameManager.last_checkpoint_position
-		# Stop all movement momentum so you don't instantly fly off a ledge
+		# Stop all movement momentum so you don't instantly fly off ledge
 		velocity = Vector2.ZERO 
 	else:
 		# No checkpoint found: restart the entire scene from scratch
