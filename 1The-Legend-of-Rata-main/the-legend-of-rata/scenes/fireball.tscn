@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://iyf7kvc3xd3t"]
+
+[ext_resource type="Texture2D" uid="uid://b82nmeqilc6uu" path="res://assets/test fireball ogre.png" id="1_svk5y"]
+
+[node name="Fireball" type="Area2D" unique_id=1593742961]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=248282763]
+
+[node name="TestFireballOgre" type="Sprite2D" parent="." unique_id=1792690177]
+position = Vector2(17.999998, -28.000011)
+scale = Vector2(0.32299054, 0.26183602)
+texture = ExtResource("1_svk5y")
