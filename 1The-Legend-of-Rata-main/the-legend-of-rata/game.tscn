@@ -912,6 +912,6 @@ position = Vector2(4933, -2092)
 position = Vector2(4521, -1766)
 
 [node name="KillZone" parent="." unique_id=632059254 instance=ExtResource("9_hve3p")]
-position = Vector2(-7, 126)
+position = Vector2(-2, 106)
 
 [editable path="player"]
