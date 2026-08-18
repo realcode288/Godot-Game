@@ -3,6 +3,22 @@
 [ext_resource type="Script" uid="uid://bjde5gtpbkhjn" path="res://player.gd" id="1_4flbx"]
 [ext_resource type="Texture2D" uid="uid://cjewpguowk48s" path="res://assets/Surely Finished Rata.png" id="2_g2els"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_4r5pv"]
+atlas = ExtResource("2_g2els")
+region = Rect2(0, 390, 68, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_60mlk"]
+atlas = ExtResource("2_g2els")
+region = Rect2(68, 390, 68, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i4ail"]
+atlas = ExtResource("2_g2els")
+region = Rect2(136, 390, 68, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a38lo"]
+atlas = ExtResource("2_g2els")
+region = Rect2(204, 390, 68, 64)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_qhqgy"]
 atlas = ExtResource("2_g2els")
 region = Rect2(0, 0, 71, 83)
@@ -77,6 +93,23 @@ animations = [{
 "loop": 1,
 "name": &"attack",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4r5pv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_60mlk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i4ail")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a38lo")
+}],
+"loop": 1,
+"name": &"hurt",
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -158,8 +191,10 @@ script = ExtResource("1_4flbx")
 position = Vector2(-0.5899995, 3.9459817)
 scale = Vector2(0.26148146, 0.23966222)
 sprite_frames = SubResource("SpriteFrames_lg1c5")
-animation = &"idle"
+animation = &"hurt"
 autoplay = "idle"
+frame = 1
+frame_progress = 0.008042075
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1379958845]
 position = Vector2(0, 4.5)

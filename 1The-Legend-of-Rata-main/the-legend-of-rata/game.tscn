@@ -900,14 +900,14 @@ position = Vector2(56, -9)
 texture = ExtResource("6_ryrav")
 
 [node name="Checkpoint7" parent="." unique_id=560169572 instance=ExtResource("4_fc0e3")]
-position = Vector2(4143, -1995)
+position = Vector2(4143, -1997)
 
 [node name="Checkpoint8" parent="." unique_id=1155043071 instance=ExtResource("4_fc0e3")]
-position = Vector2(4933, -2094)
+position = Vector2(4933, -2092)
 
 [node name="Music" parent="." unique_id=1833617249 instance=ExtResource("8_j5wjh")]
 
 [node name="Portal" parent="." unique_id=1932183458 instance=ExtResource("9_vef74")]
-position = Vector2(4520, -1767)
+position = Vector2(4521, -1766)
 
 [editable path="player"]
