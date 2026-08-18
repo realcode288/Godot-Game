@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://syh3grc2rgb5"]
+
+[ext_resource type="Texture2D" uid="uid://b82nmeqilc6uu" path="res://assets/test fireball ogre.png" id="1_51gij"]
+[ext_resource type="Script" uid="uid://beyef4dhnyasq" path="res://scenes/fire_ball.gd" id="1_qddq2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vcs13"]
+radius = 185.0027
+
+[node name="Fire ball" type="Area2D" unique_id=1972028524]
+script = ExtResource("1_qddq2")
+
+[node name="TestFireballOgre" type="Sprite2D" parent="." unique_id=1056709062]
+position = Vector2(36, 3)
+texture = ExtResource("1_51gij")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=610289258]
+position = Vector2(3, 41)
+shape = SubResource("CircleShape2D_vcs13")
