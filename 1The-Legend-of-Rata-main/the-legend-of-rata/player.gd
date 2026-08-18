@@ -1,41 +1,75 @@
-extends CharacterBody2D #Just refrencing the player's node
+extends CharacterBody2D
 
-const SPEED = 150.0 # This sets the speed
-const JUMP_VELOCITY = -250.0 # This sets the Jump Height
+const SPEED = 150.0 
+const JUMP_VELOCITY = -250.0 
 
-
-@onready var animated_sprite = $AnimatedSprite2D # References to our nodes
+# --- ALL @ONREADY VARIABLES GO HERE ---
+@onready var animated_sprite = $AnimatedSprite2D 
 @onready var hitbox_shape = $"Attack Hitbox/CollisionShape2D"
+@onready var invincibility_timer = $InvincibilityTimer
+@onready var camera = $Camera2D 
 
-var is_attacking = false # State variables
+# --- REGULAR VARIABLES GO NEXT ---
+var is_attacking = false 
+var is_hurt = false
+var is_invincible = false
+var shake_intensity: float = 0.0
+var shake_decay: float = 15.0
 
-func _ready():
+# --- FUNCTIONS GO BELOW THIS LINE ---
+
+func _ready() -> void:
 	# This makes the hitbox off at the start of the game
 	if hitbox_shape:
 		hitbox_shape.disabled = true
-
-func _physics_process(delta: float) -> void: # Adds the gravity.
 	
+	# Connects animation completion to safely clear states
+	animated_sprite.animation_finished.connect(_on_animated_sprite_2d_animation_finished)
+
+func _process(delta: float) -> void:
+	# 1. CAMERA SHAKE PROCESSING
+	if camera and shake_intensity > 0:
+		shake_intensity = move_toward(shake_intensity, 0, shake_decay * delta)
+		camera.offset.x = randf_range(-shake_intensity, shake_intensity)
+		camera.offset.y = randf_range(-shake_intensity, shake_intensity)
+	elif camera:
+		camera.offset = Vector2.ZERO
+
+	# 2. INVINCIBILITY BLINK VISUALS
+	if is_invincible:
+		animated_sprite.visible = fmod(Time.get_ticks_msec() / 50.0, 2.0) < 1.0
+	else:
+		animated_sprite.visible = true
+
+func _physics_process(delta: float) -> void:
+	# Adds gravity
 	if not is_on_floor():
-		velocity += get_gravity() * delta # This makes the player not able to jump in mid air
+		velocity += get_gravity() * delta 
 
-	# 1. HANDLE ATTACK INPUT
-	if Input.is_action_just_pressed("attack") and not is_attacking:		start_attack() # The attack mechanism (if the button is pressed the player will attack)
-
-
-	if is_attacking: 	# If we are attacking, stop movement processing and let the attack finish
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+	# PRIORITY STATES: Hurt blocks input and movement
+	if is_hurt:
 		move_and_slide()
 		return
 
-	
-	if Input.is_action_just_pressed("move_up") and is_on_floor():		velocity.y = JUMP_VELOCITY # This makes the jump work when we press the chosen key
+	# HANDLE ATTACK INPUT
+	if Input.is_action_just_pressed("attack") and not is_attacking:
+		start_attack()
 
+	# If attacking, stop movement processing and let the attack finish
+	if is_attacking: 
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+		move_and_slide()
+		update_animations()
+		return
 
-	var direction := Input.get_axis("move_left", "move_right") # this makes the player move left and right when we press the chosen keys
+	# HANDLE JUMP INPUT
+	if Input.is_action_just_pressed("move_up") and is_on_floor():
+		velocity.y = JUMP_VELOCITY 
+
+	# HANDLE HORIZONTAL MOVEMENT
+	var direction := Input.get_axis("move_left", "move_right") 
 	if direction:
 		velocity.x = direction * SPEED
-		# Flip the sprite and the hitbox to face the direction you move (Just visually pleasing)
 		animated_sprite.flip_h = (direction < 0)
 		$"Attack Hitbox".scale.x = direction
 	else:
@@ -43,43 +77,73 @@ func _physics_process(delta: float) -> void: # Adds the gravity.
 
 	move_and_slide()
 	
-	
-	if is_on_floor(): # This handles the movement animations
-		if direction != 0:
+	# CHOOSE RUN, IDLE, OR JUMP ANIMATION
+	update_animations()
+
+func update_animations() -> void:
+	if is_hurt:
+		return 
+	if is_attacking:
+		if animated_sprite.animation != "attack":
+			animated_sprite.play("attack")
+		return
+
+	if not is_on_floor():
+		animated_sprite.play("jump")
+	else:
+		if velocity.x != 0:
 			animated_sprite.play("run")
 		else:
 			animated_sprite.play("idle")
 
-
-func start_attack(): # If this is true you can attack
+func start_attack() -> void: 
 	is_attacking = true
-	animated_sprite.play("attack") 
 	
-	
-	await get_tree().create_timer(0.15).timeout # makes the game wait a split second before attacking
-	if hitbox_shape:
+	await get_tree().create_timer(0.1).timeout 
+	if hitbox_shape and is_attacking:
 		hitbox_shape.disabled = false
 	
-	
-	await get_tree().create_timer(0.15).timeout # This lets the attack hitbox go on and off for a split second
+	await get_tree().create_timer(0.15).timeout 
 	if hitbox_shape:
 		hitbox_shape.disabled = true
-	is_attacking = false
 
+func take_damage() -> void:
+	if is_hurt or is_invincible: 
+		return
+		
+	is_hurt = true
+	is_invincible = true
+	is_attacking = false 
+	
+	if hitbox_shape:
+		hitbox_shape.disabled = true
+		
+	animated_sprite.play("hurt")
+	shake_intensity = 8.0 
+	
+	if invincibility_timer:
+		invincibility_timer.start()
+	
+	velocity.x = 100 if animated_sprite.flip_h else -100
+	velocity.y = -100
 
-func _on_animated_sprite_2d_animation_finished() -> void: # This is the finishing animation for the attack
+func _on_animated_sprite_2d_animation_finished() -> void: 
 	if animated_sprite.animation == "attack":
 		is_attacking = false
-		if hitbox_shape:	
-			hitbox_shape.disabled = true
+	elif animated_sprite.animation == "hurt":
+		is_hurt = false
+
+func _on_invincibility_timer_timeout() -> void:
+	is_invincible = false
+	animated_sprite.visible = true 
 
 func respawn() -> void:
 	if GameManager.last_checkpoint_position != Vector2.ZERO:
 		global_position = GameManager.last_checkpoint_position
-		velocity = Vector2.ZERO # Stops carried-over physics momentum
+		velocity = Vector2.ZERO 
 	else:
 		get_tree().reload_current_scene()
 		
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_cancel"): # Default Escape/Back key
+	if event.is_action_pressed("ui_cancel"): 
 		respawn()
