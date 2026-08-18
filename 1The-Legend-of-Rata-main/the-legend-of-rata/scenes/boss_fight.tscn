@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://3kx1n5yy0p6y" path="res://scenes/boss_platform.tscn" id="4_67f06"]
 [ext_resource type="PackedScene" uid="uid://b6ni1tuf7pc4k" path="res://boss.tscn" id="5_31neg"]
 [ext_resource type="PackedScene" uid="uid://btk8xa3gru6ov" path="res://scenes/player.tscn" id="6_31neg"]
+[ext_resource type="Texture2D" uid="uid://b82nmeqilc6uu" path="res://assets/test fireball ogre.png" id="7_x4w2v"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_31neg"]
 texture = ExtResource("1_7ydql")
@@ -539,3 +540,13 @@ position = Vector2(293, -69)
 
 [node name="player" parent="." unique_id=1126700085 instance=ExtResource("6_31neg")]
 position = Vector2(-199, -9)
+
+[node name="Camera2D" parent="player" index="2" unique_id=724658244]
+limit_bottom = 130
+
+[node name="TestFireballOgre" type="Sprite2D" parent="player" unique_id=848507016]
+position = Vector2(439, -178)
+scale = Vector2(0.21158393, 0.18822171)
+texture = ExtResource("7_x4w2v")
+
+[editable path="player"]
