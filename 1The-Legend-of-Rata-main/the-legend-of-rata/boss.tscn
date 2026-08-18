@@ -5,33 +5,32 @@
 [ext_resource type="Texture2D" uid="uid://cds0fmr6l8ypp" path="res://assets/Boss sprite sheet 1.png" id="2_lnbgr"]
 [ext_resource type="Script" uid="uid://givw6sp5w2uo" path="res://dash_state.gd" id="3_skx2t"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_lnbgr"]
+atlas = ExtResource("2_lnbgr")
+region = Rect2(469, 77, 67, 77)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_o1i15"]
 atlas = ExtResource("2_lnbgr")
-region = Rect2(132, 0, 66, 77)
+region = Rect2(402, 77, 67, 77)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_we8h1"]
 atlas = ExtResource("2_lnbgr")
-region = Rect2(198, 0, 66, 77)
+region = Rect2(335, 77, 67, 77)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kvofc"]
 atlas = ExtResource("2_lnbgr")
-region = Rect2(264, 0, 66, 77)
+region = Rect2(268, 77, 67, 77)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ef0k6"]
 atlas = ExtResource("2_lnbgr")
-region = Rect2(330, 0, 66, 77)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ry61v"]
-atlas = ExtResource("2_lnbgr")
-region = Rect2(396, 0, 66, 77)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kles1"]
-atlas = ExtResource("2_lnbgr")
-region = Rect2(462, 0, 66, 77)
+region = Rect2(201, 77, 67, 77)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lnbgr"]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lnbgr")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_o1i15")
 }, {
@@ -43,12 +42,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ef0k6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ry61v")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kles1")
 }],
 "loop": 1,
 "name": &"walk",
@@ -64,10 +57,10 @@ script = ExtResource("1_0bnu1")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2071939406]
 sprite_frames = SubResource("SpriteFrames_lnbgr")
 animation = &"walk"
-frame_progress = 0.24254516
+frame_progress = 0.6145641
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=329403262]
-position = Vector2(-15, 3.5)
+position = Vector2(-3, 4)
 shape = SubResource("RectangleShape2D_o1i15")
 
 [node name="StateMachine" type="Node" parent="." unique_id=87136762]
