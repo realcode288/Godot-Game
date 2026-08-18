@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://b5nfsox3g7d4x"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vcs13"]
+
+[node name="Ogre" type="CharacterBody2D" unique_id=308004299]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1835689092]
+sprite_frames = SubResource("SpriteFrames_vcs13")
+frame_progress = 0.23924167
