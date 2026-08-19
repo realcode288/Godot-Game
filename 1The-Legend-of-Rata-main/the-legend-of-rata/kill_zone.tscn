@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://c6vn1dsno3ugh" path="res://kill_zone.gd" id="1_tuh0n"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_rgb5m"]
-b = Vector2(3519, 0)
+b = Vector2(4937, 0)
 
 [node name="KillZone" type="Area2D" unique_id=632059254]
 script = ExtResource("1_tuh0n")
