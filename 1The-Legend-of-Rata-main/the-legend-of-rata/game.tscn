@@ -946,7 +946,7 @@ position = Vector2(4933, -2092)
 [node name="Music" parent="." unique_id=1833617249 instance=ExtResource("8_j5wjh")]
 
 [node name="KillZone" parent="." unique_id=632059254 instance=ExtResource("9_hve3p")]
-position = Vector2(-1, 128)
+position = Vector2(-10, 127)
 
 [node name="Grass Platform9" parent="." unique_id=223748580 instance=ExtResource("5_7jktm")]
 position = Vector2(4444, -1765)
@@ -957,5 +957,11 @@ autoplay = &"idk anymore broo"
 
 [node name="Checkpoint9" parent="." unique_id=887458671 instance=ExtResource("4_fc0e3")]
 position = Vector2(4498, -1306)
+
+[node name="KillZone2" parent="." unique_id=1807313119 instance=ExtResource("9_hve3p")]
+position = Vector2(1098, -1385)
+
+[node name="KillZone3" parent="." unique_id=1922353051 instance=ExtResource("9_hve3p")]
+position = Vector2(2969, -686)
 
 [editable path="player"]
