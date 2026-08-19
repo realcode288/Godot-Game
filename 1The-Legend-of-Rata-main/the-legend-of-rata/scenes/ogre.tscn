@@ -1,9 +1,54 @@
 [gd_scene format=3 uid="uid://b5nfsox3g7d4x"]
 
+[ext_resource type="Texture2D" uid="uid://ktaf4x8qhvmg" path="res://assets/Other Ogre 2.png" id="1_w80oy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v5ei5"]
+atlas = ExtResource("1_w80oy")
+region = Rect2(154, 80, 77, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18hxh"]
+atlas = ExtResource("1_w80oy")
+region = Rect2(231, 80, 77, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_offou"]
+atlas = ExtResource("1_w80oy")
+region = Rect2(308, 80, 77, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rw5dj"]
+atlas = ExtResource("1_w80oy")
+region = Rect2(385, 80, 77, 80)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_vcs13"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v5ei5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_18hxh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_offou")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rw5dj")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vcs13"]
+size = Vector2(45, 59)
 
 [node name="Ogre" type="CharacterBody2D" unique_id=308004299]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1835689092]
+position = Vector2(0.2499994, 0)
+scale = Vector2(1.0064934, 1)
 sprite_frames = SubResource("SpriteFrames_vcs13")
-frame_progress = 0.23924167
+frame_progress = 0.5255336
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1564230954]
+position = Vector2(-9.5, 3.5)
+shape = SubResource("RectangleShape2D_vcs13")
