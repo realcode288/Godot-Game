@@ -27,7 +27,7 @@ func _ready() -> void:
 	if hitbox_shape:
 		hitbox_shape.disabled = true
 	
-	animated_sprite.animation_finished.connect(_on_animated_sprite_2d_animation_finished)
+
 
 func _process(delta: float) -> void:
 	# 1. CAMERA SHAKE PROCESSING
@@ -170,4 +170,4 @@ func die() -> void:
 		velocity = Vector2.ZERO 
 	else:
 		# No checkpoint found: restart the entire scene from scratch
-		get_tree().reload_current_scene()
+		get_tree().reload_current_scene.call_deferred()
