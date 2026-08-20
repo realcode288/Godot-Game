@@ -27,7 +27,7 @@ func _ready() -> void:
 	if hitbox_shape:
 		hitbox_shape.disabled = true
 	
-	animated_sprite.animation_finished.connect(_on_animated_sprite_2d_animation_finished)
+	# Removed the manual .connect() line here to prevent the duplicate connection error!
 
 func _process(delta: float) -> void:
 	# 1. CAMERA SHAKE PROCESSING
@@ -148,7 +148,8 @@ func respawn() -> void:
 		global_position = GameManager.last_checkpoint_position
 		velocity = Vector2.ZERO 
 	else:
-		get_tree().reload_current_scene()
+		# Use call_deferred here as well just in case respawn is called from physics context
+		get_tree().call_deferred("reload_current_scene")
 		
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"): 
@@ -169,5 +170,5 @@ func die() -> void:
 		# Stop all movement momentum so you don't instantly fly off ledge
 		velocity = Vector2.ZERO 
 	else:
-		# No checkpoint found: restart the entire scene from scratch
-		get_tree().reload_current_scene()
+		# FIXED: Safely reload scene using call_deferred to avoid physics collision errors
+		get_tree().call_deferred("reload_current_scene")
