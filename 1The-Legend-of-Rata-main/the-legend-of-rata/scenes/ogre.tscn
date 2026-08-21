@@ -89,6 +89,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lwrrw"]
 size = Vector2(21, 16.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jcu5y"]
+size = Vector2(223, 20)
+
 [node name="Ogre" type="CharacterBody2D" unique_id=308004299]
 script = ExtResource("1_v5ei5")
 
@@ -103,5 +106,11 @@ animation = &"Idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ogre Hitbox" unique_id=1914935220]
 position = Vector2(-22.5, 26.25)
 shape = SubResource("RectangleShape2D_lwrrw")
+
+[node name="Detection Area" type="Area2D" parent="." unique_id=2031394190]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection Area" unique_id=1635417196]
+position = Vector2(-115.5, 38)
+shape = SubResource("RectangleShape2D_jcu5y")
 
 [connection signal="body_entered" from="Ogre Hitbox" to="." method="_on_ogre_hitbox_body_entered"]
