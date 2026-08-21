@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://duc815w36003v"]
+
+[ext_resource type="Script" uid="uid://cqya787es34eg" path="res://scenes/lore.gd" id="1_po2nf"]
+
+[node name="Lore" type="Control" unique_id=1137363348]
+layout_mode = 3
+anchor_right = 1.1220001
+anchor_bottom = 1.074
+offset_right = -39.240234
+offset_bottom = 0.079956055
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_po2nf")
+
+[node name="Label" type="Label" parent="." unique_id=2100057698]
+layout_mode = 0
+offset_left = -267.0
+offset_top = 29.0
+offset_right = 2263.0
+offset_bottom = 874.0
+theme_override_font_sizes/font_size = 70
+text = "Your name is Rata and your father has
+ been killed by a terrifying ogre.
+You've built a canoe and ventured off 
+to his island to take revenge. 
+Beware,
+ he awaits you and has built dangerous terrain
+ on the island.
+Navigate the island and avenge your father!"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="." unique_id=2027747748]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.39200002
+anchor_top = 0.76500005
+anchor_right = 0.52400005
+anchor_bottom = 0.878
+offset_left = -0.08001709
+offset_top = -0.4000244
+offset_right = -0.26013184
+offset_bottom = -0.4800415
+theme_override_font_sizes/font_size = 70
+text = "Exit"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
