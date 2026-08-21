@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://xxg4spg5fuwb"]
 
 [ext_resource type="Script" uid="uid://byqmqblfrc8vi" path="res://mainMenu.gd" id="1_qkhwq"]
+[ext_resource type="Texture2D" uid="uid://cupvqdyt8qfou" path="res://assets/kiwi for menu.png" id="2_3d1i7"]
+[ext_resource type="Texture2D" uid="uid://5ppyj7u28vig" path="res://assets/shore for menu.jpg" id="2_l7wge"]
+[ext_resource type="Texture2D" uid="uid://cckdehyihb001" path="res://assets/canoe for menu.png" id="3_7nrmo"]
 
 [node name="Control" type="Control" unique_id=1063297159]
 layout_mode = 3
@@ -10,6 +13,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qkhwq")
+
+[node name="ShoreForMenu" type="Sprite2D" parent="." unique_id=1572592164]
+position = Vector2(957, 531.75)
+scale = Vector2(3.7054265, 2.7093024)
+texture = ExtResource("2_l7wge")
+
+[node name="CanoeForMenu" type="Sprite2D" parent="." unique_id=2091280998]
+position = Vector2(1188, 772)
+scale = Vector2(1.314, 1.264)
+texture = ExtResource("3_7nrmo")
+
+[node name="KiwiForMenu" type="Sprite2D" parent="." unique_id=970377349]
+position = Vector2(395.25, 827.75)
+scale = Vector2(0.78342247, 0.7314607)
+texture = ExtResource("2_3d1i7")
+flip_h = true
 
 [node name="Button" type="Button" parent="." unique_id=1292372046]
 layout_mode = 1
@@ -21,7 +40,7 @@ anchor_bottom = 0.23700002
 offset_left = -86.76001
 offset_top = -37.960022
 offset_right = 87.73999
-offset_bottom = 39.039978
+offset_bottom = 73.03998
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 75
 text = "Play"
@@ -33,10 +52,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -104.0
-offset_top = -26.0
-offset_right = 108.0
-offset_bottom = 51.0
+offset_left = -155.0
+offset_top = -43.0
+offset_right = 159.0
+offset_bottom = 68.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 75
