@@ -19,6 +19,30 @@ region = Rect2(308, 80, 77, 80)
 atlas = ExtResource("1_w80oy")
 region = Rect2(385, 80, 77, 80)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_8tc31"]
+atlas = ExtResource("1_w80oy")
+region = Rect2(154, 240, 77, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c1ba8"]
+atlas = ExtResource("1_w80oy")
+region = Rect2(231, 240, 77, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u8uni"]
+atlas = ExtResource("1_w80oy")
+region = Rect2(308, 240, 77, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n2bd0"]
+atlas = ExtResource("1_w80oy")
+region = Rect2(385, 240, 77, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i7lmq"]
+atlas = ExtResource("1_w80oy")
+region = Rect2(462, 240, 77, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l8bpt"]
+atlas = ExtResource("1_w80oy")
+region = Rect2(539, 240, 77, 80)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_vcs13"]
 animations = [{
 "frames": [{
@@ -35,22 +59,49 @@ animations = [{
 "texture": SubResource("AtlasTexture_rw5dj")
 }],
 "loop": 1,
-"name": &"default",
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8tc31")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c1ba8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u8uni")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n2bd0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i7lmq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l8bpt")
+}],
+"loop": 1,
+"name": &"move",
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vcs13"]
-size = Vector2(28, 40)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lwrrw"]
+size = Vector2(21, 16.5)
 
 [node name="Ogre" type="CharacterBody2D" unique_id=308004299]
 script = ExtResource("1_v5ei5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1835689092]
-position = Vector2(-8.75, 11)
-scale = Vector2(0.77272725, 0.725)
+position = Vector2(-16.25, 18.5)
+scale = Vector2(0.57792205, 0.5375)
 sprite_frames = SubResource("SpriteFrames_vcs13")
-frame_progress = 0.5255336
+animation = &"Idle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1564230954]
-position = Vector2(-16, 13)
-shape = SubResource("RectangleShape2D_vcs13")
+[node name="Ogre Hitbox" type="Area2D" parent="." unique_id=1036995896]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ogre Hitbox" unique_id=1914935220]
+position = Vector2(-22.5, 26.25)
+shape = SubResource("RectangleShape2D_lwrrw")
+
+[connection signal="body_entered" from="Ogre Hitbox" to="." method="_on_ogre_hitbox_body_entered"]
