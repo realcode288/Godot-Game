@@ -129,7 +129,7 @@ func take_damage() -> void:
 	invincibility_time_left = invincibility_duration # Set countdown timeline to 1.0 second
 	
 	if hitbox_shape:
-		hitbox_shape.disabled = true
+		hitbox_shape.set_deferred("disabled", true)
 		
 	animated_sprite.play("hurt")
 	shake_intensity = 8.0 
