@@ -13,38 +13,49 @@ script = ExtResource("1_qkhwq")
 
 [node name="Button" type="Button" parent="." unique_id=1292372046]
 layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.503
+anchor_top = 0.23700002
+anchor_right = 0.503
+anchor_bottom = 0.23700002
+offset_left = -86.76001
+offset_top = -37.960022
+offset_right = 87.73999
+offset_bottom = 39.039978
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 75
+text = "Play"
+
+[node name="Button2" type="Button" parent="." unique_id=571487329]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -109.0
-offset_top = 62.0
-offset_right = 65.5
-offset_bottom = 139.0
+offset_left = -104.0
+offset_top = -26.0
+offset_right = 108.0
+offset_bottom = 51.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 50
-text = "Play"
+theme_override_font_sizes/font_size = 75
+text = "Controls"
 
-[node name="Label" type="Label" parent="." unique_id=1270207767]
-layout_mode = 0
-offset_left = 498.0
-offset_top = 368.0
-offset_right = 1438.0
-offset_bottom = 485.0
-theme_override_font_sizes/font_size = 27
-text = "You've built a canoe and ventured off to his island to take revenge. 
-Beware, he awaits you and has built dangerous terrain on the island.
-                        Navigate the island and avenge your father!"
-
-[node name="Label2" type="Label" parent="." unique_id=1717409]
-layout_mode = 0
-offset_left = 485.0
-offset_top = 334.0
-offset_right = 1407.0
-offset_bottom = 379.0
-theme_override_font_sizes/font_size = 27
-text = "Your name is Rata and your father has been killed by a terrifying ogre."
+[node name="Button3" type="Button" parent="." unique_id=1924925741]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.50600004
+anchor_top = 0.372
+anchor_right = 0.50600004
+anchor_bottom = 0.372
+offset_left = -103.52008
+offset_top = -45.76001
+offset_right = 66.47992
+offset_bottom = 65.23999
+theme_override_font_sizes/font_size = 75
+text = "Lore"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]
