@@ -982,4 +982,7 @@ theme_override_font_sizes/font_size = 8
 text = "Press Esc to Return to
  Checkpoint if you fall too far"
 
+[node name="Platform11" parent="." unique_id=613219318 instance=ExtResource("3_feb5d")]
+position = Vector2(1560, -90)
+
 [editable path="player"]

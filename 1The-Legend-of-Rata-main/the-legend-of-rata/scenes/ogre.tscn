@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://b5nfsox3g7d4x"]
 
+[ext_resource type="Script" uid="uid://cjpwl2xwixjjh" path="res://scenes/ogre.gd" id="1_v5ei5"]
 [ext_resource type="Texture2D" uid="uid://ktaf4x8qhvmg" path="res://assets/Other Ogre 2.png" id="1_w80oy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v5ei5"]
@@ -42,6 +43,7 @@ animations = [{
 size = Vector2(28, 40)
 
 [node name="Ogre" type="CharacterBody2D" unique_id=308004299]
+script = ExtResource("1_v5ei5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1835689092]
 position = Vector2(-8.75, 11)
