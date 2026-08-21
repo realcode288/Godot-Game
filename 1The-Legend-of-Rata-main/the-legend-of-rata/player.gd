@@ -24,6 +24,9 @@ var invincibility_time_left: float = 0.0
 # --- FUNCTIONS GO BELOW THIS LINE ---
 
 func _ready() -> void:
+	# Automatically add player to the "player" group for detection systems
+	add_to_group("player")
+	
 	if hitbox_shape:
 		hitbox_shape.disabled = true
 	

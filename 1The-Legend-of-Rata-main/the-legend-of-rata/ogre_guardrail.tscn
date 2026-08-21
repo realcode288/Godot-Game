@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bykkq73e53mgv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vcs13"]
+size = Vector2(20, 145)
+
+[node name="OgreGuardrail" type="StaticBody2D" unique_id=1250100804]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=452823029]
+position = Vector2(0, 16.5)
+shape = SubResource("RectangleShape2D_vcs13")
