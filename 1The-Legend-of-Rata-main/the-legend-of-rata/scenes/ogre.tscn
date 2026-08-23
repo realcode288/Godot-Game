@@ -87,10 +87,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vcs13"]
-size = Vector2(20, 16)
+size = Vector2(20, 29)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lwrrw"]
-size = Vector2(21, 16.5)
+size = Vector2(21, 22)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jcu5y"]
 size = Vector2(223, 20)
@@ -106,13 +106,13 @@ sprite_frames = SubResource("SpriteFrames_vcs13")
 animation = &"move"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1431480875]
-position = Vector2(-22, 26)
+position = Vector2(-22, 22.5)
 shape = SubResource("RectangleShape2D_vcs13")
 
 [node name="Ogre Hitbox" type="Area2D" parent="." unique_id=1036995896]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ogre Hitbox" unique_id=1914935220]
-position = Vector2(-22.5, 26.25)
+position = Vector2(-22.5, 25)
 shape = SubResource("RectangleShape2D_lwrrw")
 
 [node name="Detection Area" type="Area2D" parent="." unique_id=2031394190]
@@ -121,6 +121,7 @@ shape = SubResource("RectangleShape2D_lwrrw")
 position = Vector2(-115, 26)
 shape = SubResource("RectangleShape2D_jcu5y")
 
+[connection signal="area_entered" from="Ogre Hitbox" to="." method="_on_ogre_hitbox_area_entered"]
 [connection signal="body_entered" from="Ogre Hitbox" to="." method="_on_ogre_hitbox_body_entered"]
 [connection signal="body_entered" from="Detection Area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="Detection Area" to="." method="_on_detection_area_body_exited"]
