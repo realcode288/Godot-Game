@@ -108,7 +108,7 @@ func start_attack() -> void:
 	if is_attacking:
 		is_attacking = false
 
-func take_damage(attacker_position: Vector2 = Vector2.ZERO) -> void:
+func take_damage(attacker_position: Vector2 = Vector2.ZERO, forced_direction: float = 0.0) -> void:
 	if is_hurt or is_invincible: 
 		return
 		
@@ -123,15 +123,13 @@ func take_damage(attacker_position: Vector2 = Vector2.ZERO) -> void:
 	animated_sprite.play("hurt")
 	shake_intensity = 8.0 
 	
-	# --- BULLETPROOF VECTOR DIRECTION KNOCKBACK ---
-	if attacker_position != Vector2.ZERO:
-		# Find the horizontal direction *away* from the attacker using vector math
+	# --- DIRECTIONAL KNOCKBACK FIX ---
+	if forced_direction != 0.0:
+		velocity.x = forced_direction * 120.0
+	elif attacker_position != Vector2.ZERO:
 		var knockback_dir = sign(global_position.x - attacker_position.x)
-		
-		# Fallback if they are occupying the exact same pixel coordinate
 		if knockback_dir == 0:
 			knockback_dir = 1 if not animated_sprite.flip_h else -1
-			
 		velocity.x = knockback_dir * 120.0
 	else:
 		velocity.x = 100 if animated_sprite.flip_h else -100

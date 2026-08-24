@@ -10,7 +10,7 @@ var player = null
 
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var detection_area = get_node_or_null("DetectionArea") 
-@onready var ogre_hitbox = get_node_or_null("OgreHitbox")     
+@onready var ogre_hitbox = get_node_or_null("OgreHitbox")      
 
 var default_detection_x: float = 0.0
 var default_hitbox_x: float = 0.0
@@ -71,13 +71,13 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
-	# Clean collision check to hurt the player without trapping them
+	# Collision check to hurt the player and pass last_direction for knockback
 	for i in range(get_slide_collision_count()):
 		var collision = get_slide_collision(i)
 		var collider = collision.get_collider()
 		if collider and collider.is_in_group("player"):
 			if collider.has_method("take_damage"):
-				collider.take_damage(global_position)
+				collider.take_damage(global_position, last_direction)
 
 func take_damage(amount: int) -> void:
 	current_health -= amount
@@ -95,6 +95,24 @@ func take_damage(amount: int) -> void:
 
 func die() -> void:
 	print("Ogre defeated!")
+	
+	# Disable physics, movement, and collisions so it can't hurt the player anymore
+	set_physics_process(false)
+	collision_layer = 0
+	collision_mask = 0
+	
+	if detection_area:
+		detection_area.monitoring = false
+	if ogre_hitbox:
+		ogre_hitbox.monitoring = false
+		ogre_hitbox.monitorable = false
+
+	# Play the death animation 3 times before freeing the node
+	if animated_sprite.sprite_frames.has_animation("death"):
+		for i in range(3):
+			animated_sprite.play("death")
+			await animated_sprite.animation_finished
+		
 	queue_free()
 
 func _on_detection_area_body_entered(body: Node2D) -> void:
@@ -108,7 +126,7 @@ func _on_detection_area_body_entered(body: Node2D) -> void:
 
 func _on_ogre_hitbox_body_entered(body: Node2D) -> void:
 	if body.has_method("take_damage"):
-		body.take_damage(global_position)
+		body.take_damage(global_position, last_direction)
 
 func _on_ogre_hitbox_area_entered(area: Area2D) -> void:
 	if area.name == "Attack Hitbox" or (area.get_parent() and area.get_parent().is_in_group("player")):
