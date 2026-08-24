@@ -61,8 +61,8 @@ func _physics_process(delta: float) -> void:
 		if ogre_hitbox:
 			ogre_hitbox.position.x = -abs(default_hitbox_x) if moving_left else abs(default_hitbox_x)
 		
-		if animated_sprite.sprite_frames.has_animation("walk"):
-			animated_sprite.play("walk")
+		if animated_sprite.sprite_frames.has_animation("move"):
+			animated_sprite.play("move")
 	else:
 		player = null
 		velocity.x = move_toward(velocity.x, 0, speed)
