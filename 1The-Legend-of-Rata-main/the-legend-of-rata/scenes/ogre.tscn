@@ -93,7 +93,7 @@ size = Vector2(20, 29)
 size = Vector2(21, 22)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jcu5y"]
-size = Vector2(223, 20)
+size = Vector2(252, 20)
 
 [node name="Ogre" type="CharacterBody2D" unique_id=308004299]
 collision_layer = 2
@@ -112,13 +112,13 @@ shape = SubResource("RectangleShape2D_vcs13")
 [node name="Ogre Hitbox" type="Area2D" parent="." unique_id=1036995896]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ogre Hitbox" unique_id=1914935220]
-position = Vector2(-22.5, 25)
+position = Vector2(-24, 25)
 shape = SubResource("RectangleShape2D_lwrrw")
 
 [node name="Detection Area" type="Area2D" parent="." unique_id=2031394190]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detection Area" unique_id=1635417196]
-position = Vector2(-115, 26)
+position = Vector2(-117, 26)
 shape = SubResource("RectangleShape2D_jcu5y")
 
 [connection signal="area_entered" from="Ogre Hitbox" to="." method="_on_ogre_hitbox_area_entered"]

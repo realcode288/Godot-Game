@@ -1038,10 +1038,10 @@ position = Vector2(5238, -1033)
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=845311779]
 
 [node name="ProgressBar" type="ProgressBar" parent="CanvasLayer" unique_id=1221213940 groups=["boss_health_bar"]]
-offset_left = 5058.0
-offset_top = -1118.0
-offset_right = 5169.0
-offset_bottom = -1088.0
+offset_left = 4963.0
+offset_top = -1117.0
+offset_right = 5263.0
+offset_bottom = -1087.0
 script = ExtResource("11_mfdv2")
 
 [editable path="player"]

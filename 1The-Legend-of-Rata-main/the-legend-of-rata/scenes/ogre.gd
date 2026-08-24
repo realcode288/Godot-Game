@@ -9,13 +9,11 @@ var player = null
 @export var sprite_faces_left: bool = true 
 
 @onready var animated_sprite = $AnimatedSprite2D
-@onready var collision_shape = get_node_or_null("CollisionShape2D")
 @onready var detection_area = get_node_or_null("DetectionArea") 
 @onready var ogre_hitbox = get_node_or_null("OgreHitbox")     
 
 var default_detection_x: float = 0.0
 var default_hitbox_x: float = 0.0
-
 var last_direction: float = 1.0
 
 signal health_changed(current_health, max_health)
@@ -58,10 +56,10 @@ func _physics_process(delta: float) -> void:
 			animated_sprite.flip_h = moving_left    
 			
 		if detection_area:
-			detection_area.position.x = -default_detection_x if moving_left else default_detection_x
+			detection_area.position.x = -abs(default_detection_x) if moving_left else abs(default_detection_x)
 			
 		if ogre_hitbox:
-			ogre_hitbox.position.x = -default_hitbox_x if moving_left else default_hitbox_x
+			ogre_hitbox.position.x = -abs(default_hitbox_x) if moving_left else abs(default_hitbox_x)
 		
 		if animated_sprite.sprite_frames.has_animation("walk"):
 			animated_sprite.play("walk")
@@ -73,6 +71,7 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
+	# Clean collision check to hurt the player without trapping them
 	for i in range(get_slide_collision_count()):
 		var collision = get_slide_collision(i)
 		var collider = collision.get_collider()
@@ -104,15 +103,8 @@ func _on_detection_area_body_entered(body: Node2D) -> void:
 		print("Player entered Ogre detection range!")
 		
 		var health_bar = get_tree().get_first_node_in_group("boss_health_bar")
-		if health_bar:
-			print("Health bar found!")
-			if health_bar.has_method("show_boss_bar"):
-				health_bar.show_boss_bar(current_health, max_health)
-		else:
-			print("WARNING: Health bar not found in group!")
-
-func _on_detection_area_body_exited(body: Node2D) -> void:
-	pass
+		if health_bar and health_bar.has_method("show_boss_bar"):
+			health_bar.show_boss_bar(current_health, max_health)
 
 func _on_ogre_hitbox_body_entered(body: Node2D) -> void:
 	if body.has_method("take_damage"):
