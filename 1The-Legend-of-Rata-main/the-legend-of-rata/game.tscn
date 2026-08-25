@@ -1010,22 +1010,24 @@ position = Vector2(4498, -1306)
 position = Vector2(5227, -1055)
 
 [node name="Label" type="Label" parent="." unique_id=1989695462]
-offset_left = 163.0
-offset_top = -28.0
-offset_right = 238.0
+offset_left = 183.0
+offset_top = -54.0
+offset_right = 296.0
 offset_bottom = 47.0
-text = "W = Move
+text = "W = Jump
 A = <-
-D = ->"
+D = ->
+Space = Attack"
 
 [node name="Label2" type="Label" parent="." unique_id=48095033]
-offset_left = 593.0
-offset_top = -219.0
-offset_right = 733.0
-offset_bottom = -188.0
+offset_left = 566.0
+offset_top = -300.0
+offset_right = 706.0
+offset_bottom = -258.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 8
-text = "Press Esc to Return to
- Checkpoint if you fall too far"
+text = "Press Esc to Return to the 
+latest Checkpoint if you fall too far"
 
 [node name="Platform11" parent="." unique_id=613219318 instance=ExtResource("3_feb5d")]
 position = Vector2(2748, -733)
