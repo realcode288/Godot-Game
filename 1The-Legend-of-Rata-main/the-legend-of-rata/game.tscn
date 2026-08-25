@@ -827,6 +827,9 @@ _data = {
 &"shortcut boss battle": SubResource("Animation_082n1")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vcs13"]
+size = Vector2(531, 207.25)
+
 [node name="Game" type="Node2D" unique_id=598161988]
 
 [node name="TileMap" type="TileMap" parent="." unique_id=1158737268]
@@ -1047,6 +1050,15 @@ offset_bottom = -1087.0
 script = ExtResource("11_mfdv2")
 
 [node name="endportal" parent="." unique_id=1316316453 instance=ExtResource("11_iotsf")]
+position = Vector2(5307, -1026)
+
+[node name="BossAreaBounds" type="Area2D" parent="." unique_id=1861877976]
 position = Vector2(5357, -1024)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BossAreaBounds" unique_id=948766983]
+position = Vector2(-254.5, 44.375)
+shape = SubResource("RectangleShape2D_vcs13")
+
+[connection signal="body_exited" from="BossAreaBounds" to="Ogre" method="_on_boss_area_bounds_body_exited"]
 
 [editable path="player"]

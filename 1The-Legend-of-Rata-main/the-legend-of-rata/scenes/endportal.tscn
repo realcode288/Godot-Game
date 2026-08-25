@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://cuhvqbpn5n4a0"]
 
+[ext_resource type="Script" uid="uid://4kwtyvwlsdgr" path="res://scenes/endportal.gd" id="1_epqqh"]
 [ext_resource type="Texture2D" uid="uid://cqwdtlse4m8oi" path="res://assets/Portal asset.png" id="1_ypvqq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vcs13"]
 size = Vector2(24, 36)
 
 [node name="endportal" type="Area2D" unique_id=1316316453]
+script = ExtResource("1_epqqh")
 
 [node name="PortalAsset" type="Sprite2D" parent="." unique_id=642176399]
 position = Vector2(19.125, -19)
@@ -15,3 +17,5 @@ texture = ExtResource("1_ypvqq")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1632720010]
 position = Vector2(19, -18)
 shape = SubResource("RectangleShape2D_vcs13")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

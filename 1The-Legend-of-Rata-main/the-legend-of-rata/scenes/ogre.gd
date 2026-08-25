@@ -1,12 +1,19 @@
 extends CharacterBody2D
 
-@export var max_health: int = 500
+@export var max_health: int = 100
 var current_health: int
 var player = null 
+var is_dead: bool = false 
 
 @export var speed: float = 60.0
 @export var chase_range: float = 250.0 
 @export var sprite_faces_left: bool = true 
+
+# Safety net: Triggers defeat if the ogre falls past this Y-coordinate (adjust in Inspector if needed)
+@export var death_y_boundary: float = 800.0 
+
+# Preload the portal scene to spawn upon defeat
+const PORTAL_SCENE = preload("res://scenes/endportal.tscn")
 
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var detection_area = get_node_or_null("DetectionArea") 
@@ -15,6 +22,7 @@ var player = null
 var default_detection_x: float = 0.0
 var default_hitbox_x: float = 0.0
 var last_direction: float = 1.0
+var last_safe_position: Vector2 = Vector2.ZERO # Tracks where it was safe before falling
 
 signal health_changed(current_health, max_health)
 
@@ -28,6 +36,23 @@ func _ready() -> void:
 		default_hitbox_x = abs(ogre_hitbox.position.x)
 
 func _physics_process(delta: float) -> void:
+	if is_dead:
+		return
+
+	# Keep track of where the ogre safely is while on the platform
+	if is_on_floor():
+		last_safe_position = global_position
+
+	# --- SAFETY NET: IF IT FALLS PAST THE PLATFORM, KILL IT ---
+	if global_position.y > death_y_boundary:
+		is_dead = true
+		if last_safe_position == Vector2.ZERO:
+			last_safe_position = global_position
+			last_safe_position.y = death_y_boundary - 50 
+			
+		take_damage(current_health)
+		return
+
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
@@ -61,8 +86,8 @@ func _physics_process(delta: float) -> void:
 		if ogre_hitbox:
 			ogre_hitbox.position.x = -abs(default_hitbox_x) if moving_left else abs(default_hitbox_x)
 		
-		if animated_sprite.sprite_frames.has_animation("move"):
-			animated_sprite.play("move")
+		if animated_sprite.sprite_frames.has_animation("walk"):
+			animated_sprite.play("walk")
 	else:
 		player = null
 		velocity.x = move_toward(velocity.x, 0, speed)
@@ -80,6 +105,9 @@ func _physics_process(delta: float) -> void:
 				collider.take_damage(global_position, last_direction)
 
 func take_damage(amount: int) -> void:
+	if is_dead and amount < current_health:
+		return
+
 	current_health -= amount
 	current_health = max(current_health, 0)
 	emit_signal("health_changed", current_health, max_health)
@@ -91,31 +119,34 @@ func take_damage(amount: int) -> void:
 		health_bar.update_health(current_health, max_health)
 	
 	if current_health <= 0:
-		die()
+		is_dead = true
+		call_deferred("die")
 
 func die() -> void:
 	print("Ogre defeated!")
 	
-	# Disable physics, movement, and collisions so it can't hurt the player anymore
-	set_physics_process(false)
-	collision_layer = 0
-	collision_mask = 0
-	
-	if detection_area:
-		detection_area.monitoring = false
-	if ogre_hitbox:
-		ogre_hitbox.monitoring = false
-		ogre_hitbox.monitorable = false
-
-	# Play the death animation 3 times before freeing the node
-	if animated_sprite.sprite_frames.has_animation("death"):
-		for i in range(3):
-			animated_sprite.play("death")
-			await animated_sprite.animation_finished
+	# --- SPAWN AND ACTIVATE THE PORTAL ON THE PLATFORM ---
+	if PORTAL_SCENE:
+		var portal_instance = PORTAL_SCENE.instantiate()
 		
+		# If it fell off the screen, spawn it at the last safe platform spot instead of the abyss
+		if last_safe_position != Vector2.ZERO and global_position.y > death_y_boundary:
+			portal_instance.global_position = last_safe_position
+		else:
+			portal_instance.global_position = global_position
+			
+		get_tree().current_scene.add_child(portal_instance)
+		
+		if portal_instance.has_method("activate_portal"):
+			portal_instance.activate_portal()
+			
+		print("Portal appeared on the platform!")
+
 	queue_free()
 
 func _on_detection_area_body_entered(body: Node2D) -> void:
+	if is_dead:
+		return
 	if body.is_in_group("player"):
 		player = body
 		print("Player entered Ogre detection range!")
@@ -125,9 +156,13 @@ func _on_detection_area_body_entered(body: Node2D) -> void:
 			health_bar.show_boss_bar(current_health, max_health)
 
 func _on_ogre_hitbox_body_entered(body: Node2D) -> void:
+	if is_dead:
+		return
 	if body.has_method("take_damage"):
 		body.take_damage(global_position, last_direction)
 
 func _on_ogre_hitbox_area_entered(area: Area2D) -> void:
+	if is_dead:
+		return
 	if area.name == "Attack Hitbox" or (area.get_parent() and area.get_parent().is_in_group("player")):
-		take_damage(25)
+		take_damage(5)
