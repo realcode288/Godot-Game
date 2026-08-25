@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://duc815w36003v"]
 
 [ext_resource type="Script" uid="uid://cqya787es34eg" path="res://scenes/lore.gd" id="1_po2nf"]
+[ext_resource type="Texture2D" uid="uid://5ppyj7u28vig" path="res://assets/shore for menu.jpg" id="2_sohhm"]
 
 [node name="Lore" type="Control" unique_id=1137363348]
 layout_mode = 3
@@ -12,12 +13,18 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_po2nf")
 
+[node name="ShoreForMenu" type="Sprite2D" parent="." unique_id=570613352]
+position = Vector2(991.5, 1651.2501)
+scale = Vector2(3.8081398, 8.536177)
+texture = ExtResource("2_sohhm")
+
 [node name="Label" type="Label" parent="." unique_id=2100057698]
 layout_mode = 0
 offset_left = -267.0
 offset_top = 29.0
 offset_right = 2263.0
 offset_bottom = 874.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 70
 text = "Your name is Rata and your father has
  been killed by a terrifying ogre.

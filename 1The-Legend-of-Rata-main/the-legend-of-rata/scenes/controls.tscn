@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b4pi6is2hr7n2"]
 
 [ext_resource type="Script" uid="uid://bmtsd0p43pfd3" path="res://scenes/controls.gd" id="1_i2gav"]
+[ext_resource type="Texture2D" uid="uid://5ppyj7u28vig" path="res://assets/shore for menu.jpg" id="2_5tddo"]
 
 [node name="Controls" type="Control" unique_id=1663881936]
 layout_mode = 3
@@ -13,6 +14,11 @@ offset_bottom = -394.20007
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_i2gav")
+
+[node name="ShoreForMenu" type="Sprite2D" parent="." unique_id=179685110]
+position = Vector2(41, 1166.25)
+scale = Vector2(3.860465, 8.784238)
+texture = ExtResource("2_5tddo")
 
 [node name="Label" type="Label" parent="." unique_id=210005337]
 layout_mode = 1
@@ -27,6 +33,7 @@ offset_right = 244.0
 offset_bottom = 196.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 75
 text = "W - Jump
 A - Move Left
