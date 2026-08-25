@@ -1,12 +1,20 @@
 [gd_scene format=3 uid="uid://ct6s75mskuybi"]
 
-[node name="End Credits" unique_id=1844054488]
+[node name="End Credits" type="Control" unique_id=1844054488]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Label" parent="." index="0" unique_id=873628368]
+[node name="Label" type="Label" parent="." unique_id=873628368]
+layout_mode = 0
 offset_left = 666.0
 offset_top = 80.0
 offset_right = 1463.0
 offset_bottom = 797.0
+theme_override_font_sizes/font_size = 27
 text = "The Legend of Rata
 Made by Finn Umali, Caleb Prestidge, Kirk Taylor
 
@@ -27,7 +35,7 @@ Stakeholders
 "
 horizontal_alignment = 1
 
-[node name="Button" type="Button" parent="." index="1" unique_id=157667480]
+[node name="Button" type="Button" parent="." unique_id=157667480]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.55200005
