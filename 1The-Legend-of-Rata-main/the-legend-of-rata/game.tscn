@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bprjfx880ymba" path="res://scenes/music.tscn" id="8_j5wjh"]
 [ext_resource type="PackedScene" uid="uid://dx2r6pdhoagq1" path="res://kill_zone.tscn" id="9_hve3p"]
 [ext_resource type="PackedScene" uid="uid://b5nfsox3g7d4x" path="res://scenes/ogre.tscn" id="9_vef74"]
+[ext_resource type="PackedScene" uid="uid://cuhvqbpn5n4a0" path="res://scenes/endportal.tscn" id="11_iotsf"]
 [ext_resource type="Script" uid="uid://dasj0w3537gfj" path="res://progress_bar.gd" id="11_mfdv2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_feb5d"]
@@ -1044,5 +1045,8 @@ offset_top = -1117.0
 offset_right = 5263.0
 offset_bottom = -1087.0
 script = ExtResource("11_mfdv2")
+
+[node name="endportal" parent="." unique_id=1316316453 instance=ExtResource("11_iotsf")]
+position = Vector2(5357, -1024)
 
 [editable path="player"]
