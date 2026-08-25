@@ -109,7 +109,7 @@ animations = [{
 size = Vector2(20, 29)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lwrrw"]
-size = Vector2(21, 22)
+size = Vector2(21, 19)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jcu5y"]
 size = Vector2(252, 20)
@@ -131,7 +131,7 @@ shape = SubResource("RectangleShape2D_vcs13")
 [node name="Ogre Hitbox" type="Area2D" parent="." unique_id=1036995896]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ogre Hitbox" unique_id=1914935220]
-position = Vector2(-24, 25)
+position = Vector2(-24, 26.5)
 shape = SubResource("RectangleShape2D_lwrrw")
 
 [node name="Detection Area" type="Area2D" parent="." unique_id=2031394190]
