@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://b5nfsox3g7d4x" path="res://scenes/ogre.tscn" id="9_vef74"]
 [ext_resource type="PackedScene" uid="uid://cuhvqbpn5n4a0" path="res://scenes/endportal.tscn" id="11_iotsf"]
 [ext_resource type="Script" uid="uid://dasj0w3537gfj" path="res://progress_bar.gd" id="11_mfdv2"]
+[ext_resource type="PackedScene" uid="uid://c0we8qf75m4ts" path="res://speedrun_ui.tscn" id="14_215e1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_feb5d"]
 texture = ExtResource("2_e2o6t")
@@ -1068,6 +1069,8 @@ position = Vector2(5357, -1024)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BossAreaBounds" unique_id=948766983]
 position = Vector2(-254.5, 44.375)
 shape = SubResource("RectangleShape2D_vcs13")
+
+[node name="SpeedrunUI" parent="." unique_id=2115951698 instance=ExtResource("14_215e1")]
 
 [connection signal="body_exited" from="BossAreaBounds" to="Ogre" method="_on_boss_area_bounds_body_exited"]
 

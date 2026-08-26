@@ -18,8 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameManager="*uid://cdo1l7ondttpk"
-SpeedrunState="*uid://bdk7jp3tbas5i"
 MusicManager="*uid://oxq1aqwkjsau"
+GlobalTimer="*uid://cdmpy6om1jc0x"
 
 [display]
 

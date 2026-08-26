@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://c0we8qf75m4ts"]
+
+[ext_resource type="Script" uid="uid://cs17lj48qvul4" path="res://speedrun_ui.gd" id="1_v82q5"]
+
+[node name="SpeedrunUI" type="CanvasLayer" unique_id=886398161]
+script = ExtResource("1_v82q5")
+
+[node name="TimerLabel" type="Label" parent="." unique_id=1433811852]
+anchors_preset = -1
+anchor_left = 0.92800003
+anchor_top = 0.037
+anchor_right = 0.92800003
+anchor_bottom = 0.037
+offset_left = -98.76001
+offset_top = -33.96
+offset_right = 100.23999
+offset_bottom = 35.04
+theme_override_font_sizes/font_size = 50
+text = "00:00.00"

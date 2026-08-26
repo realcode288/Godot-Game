@@ -18,6 +18,10 @@ func activate_portal() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		print("Player entered the portal! Loading end credits...")
+		
+		# --- STOP THE SPEEDRUN TIMER HERE ---
+		GlobalTimer.stop_timer() 
+		
 		# Use call_deferred to safely change the scene outside of the physics callback
 		call_deferred("_change_scene")
 

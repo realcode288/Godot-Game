@@ -13,14 +13,13 @@ script = ExtResource("1_dhn2b")
 
 [node name="Label" type="Label" parent="." unique_id=873628368]
 layout_mode = 0
-offset_left = 666.0
-offset_top = 80.0
-offset_right = 1463.0
-offset_bottom = 797.0
+offset_left = 651.0
+offset_top = 119.0
+offset_right = 1448.0
+offset_bottom = 836.0
 theme_override_font_sizes/font_size = 27
 text = "The Legend of Rata
 Made by Finn Umali, Caleb Prestidge, Kirk Taylor
-
 Assets Used:
 Brackeys Platformer Assets
 Tutorials: Brackeys Nodes and GDScript Learning
@@ -45,11 +44,16 @@ anchor_left = 0.55200005
 anchor_top = 0.86
 anchor_right = 0.55200005
 anchor_bottom = 0.86
-offset_left = -223.84009
-offset_top = -32.799988
-offset_right = 230.15991
-offset_bottom = 44.200012
+offset_left = -225.84009
+offset_top = -2.7999878
+offset_right = 228.15991
+offset_bottom = 74.20001
 theme_override_font_sizes/font_size = 50
 text = "Exit to Title Screen"
+
+[node name="FinalTimeLabel" type="Label" parent="." unique_id=1931444944]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
