@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://cnio3dulednbi"]
 
+[ext_resource type="Script" uid="uid://cf4f6htnkukli" path="res://game.gd" id="1_lc2xo"]
 [ext_resource type="Texture2D" uid="uid://k0dyrodb1l57" path="res://assets/world_tileset.png" id="2_e2o6t"]
 [ext_resource type="PackedScene" uid="uid://btk8xa3gru6ov" path="res://scenes/player.tscn" id="3_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://d0v400yt5e1nx" path="res://scenes/platform.tscn" id="3_feb5d"]
 [ext_resource type="PackedScene" uid="uid://3t0pqsudu3l0" path="res://scenes/checkpoint.tscn" id="4_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://xhpkr04q8hql" path="res://scenes/grass_platform.tscn" id="5_7jktm"]
 [ext_resource type="Texture2D" uid="uid://blws217rs0erk" path="res://assets/craftpix-net-672461-free-swamp-game-tileset-pixel-art/3 Objects/Pointers/1.png" id="6_ryrav"]
+[ext_resource type="Script" uid="uid://oxq1aqwkjsau" path="res://scenes/musicmanager.gd" id="8_iotsf"]
 [ext_resource type="PackedScene" uid="uid://bprjfx880ymba" path="res://scenes/music.tscn" id="8_j5wjh"]
 [ext_resource type="PackedScene" uid="uid://dx2r6pdhoagq1" path="res://kill_zone.tscn" id="9_hve3p"]
 [ext_resource type="PackedScene" uid="uid://b5nfsox3g7d4x" path="res://scenes/ogre.tscn" id="9_vef74"]
@@ -831,6 +833,7 @@ _data = {
 size = Vector2(531, 207.25)
 
 [node name="Game" type="Node2D" unique_id=598161988]
+script = ExtResource("1_lc2xo")
 
 [node name="TileMap" type="TileMap" parent="." unique_id=1158737268]
 tile_set = SubResource("TileSet_vcs13")
@@ -996,6 +999,8 @@ position = Vector2(4143, -1997)
 position = Vector2(4933, -2092)
 
 [node name="Music" parent="." unique_id=1833617249 instance=ExtResource("8_j5wjh")]
+stream = null
+script = ExtResource("8_iotsf")
 
 [node name="KillZone" parent="." unique_id=632059254 instance=ExtResource("9_hve3p")]
 position = Vector2(-10, 127)
@@ -1012,6 +1017,11 @@ position = Vector2(4498, -1306)
 
 [node name="Ogre" parent="." unique_id=308004299 instance=ExtResource("9_vef74")]
 position = Vector2(5227, -1055)
+max_health = null
+speed = null
+chase_range = null
+sprite_faces_left = null
+death_y_boundary = null
 
 [node name="Label" type="Label" parent="." unique_id=1989695462]
 offset_left = 183.0

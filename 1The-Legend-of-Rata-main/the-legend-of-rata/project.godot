@@ -17,9 +17,9 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Music="*uid://bprjfx880ymba"
 GameManager="*uid://cdo1l7ondttpk"
 SpeedrunState="*uid://bdk7jp3tbas5i"
+MusicManager="*uid://oxq1aqwkjsau"
 
 [display]
 

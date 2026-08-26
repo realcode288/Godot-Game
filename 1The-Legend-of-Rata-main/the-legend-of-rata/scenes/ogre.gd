@@ -17,7 +17,7 @@ const PORTAL_SCENE = preload("res://scenes/endportal.tscn")
 
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var detection_area = get_node_or_null("DetectionArea") 
-@onready var ogre_hitbox = get_node_or_null("OgreHitbox")      
+@onready var ogre_hitbox = get_node_or_null("OgreHitbox")       
 
 var default_detection_x: float = 0.0
 var default_hitbox_x: float = 0.0
@@ -125,6 +125,9 @@ func take_damage(amount: int) -> void:
 func die() -> void:
 	print("Ogre defeated!")
 	
+	# --- REVERT MUSIC BACK TO NORMAL TRACK ---
+	MusicManager.play_normal_music()
+	
 	# --- SPAWN AND ACTIVATE THE PORTAL ON THE PLATFORM ---
 	if PORTAL_SCENE:
 		var portal_instance = PORTAL_SCENE.instantiate()
@@ -150,6 +153,9 @@ func _on_detection_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		player = body
 		print("Player entered Ogre detection range!")
+		
+		# --- CHANGE MUSIC TO BOSS TRACK ---
+		MusicManager.play_boss_music()
 		
 		var health_bar = get_tree().get_first_node_in_group("boss_health_bar")
 		if health_bar and health_bar.has_method("show_boss_bar"):
