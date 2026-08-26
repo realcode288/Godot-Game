@@ -1018,11 +1018,6 @@ position = Vector2(4498, -1306)
 
 [node name="Ogre" parent="." unique_id=308004299 instance=ExtResource("9_vef74")]
 position = Vector2(5227, -1055)
-max_health = null
-speed = null
-chase_range = null
-sprite_faces_left = null
-death_y_boundary = null
 
 [node name="Label" type="Label" parent="." unique_id=1989695462]
 offset_left = 183.0
