@@ -20,7 +20,7 @@ scale = Vector2(3.7054265, 2.9780364)
 texture = ExtResource("2_l7wge")
 
 [node name="CanoeForMenu" type="Sprite2D" parent="." unique_id=2091280998]
-position = Vector2(1188, 772)
+position = Vector2(1247, 895.00006)
 scale = Vector2(1.314, 1.264)
 texture = ExtResource("3_7nrmo")
 
