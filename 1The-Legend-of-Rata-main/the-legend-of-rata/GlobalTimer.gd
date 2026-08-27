@@ -1,18 +1,18 @@
 extends Node
 
-var speedrun_mode: bool = false
+var speedrun_mode: bool = false # the variables
 var time: float = 0.0
 var running: bool = false
 var best_time: float = 999999.0
 
-func _ready() -> void:
+func _ready() -> void: #loads the time
 	load_best_time()
 
-func _process(delta: float) -> void:
+func _process(delta: float) -> void: #shows the timer
 	if running and speedrun_mode:
 		time += delta
 
-func start_timer() -> void:
+func start_timer() -> void: #Starts the timer
 	time = 0.0
 	running = true
 
@@ -21,7 +21,7 @@ func stop_timer() -> void:
 	if speedrun_mode:
 		save_best_time()
 
-# Saves your Personal Best to local files
+# Saves your Personal Best 
 func save_best_time() -> void:
 	if time < best_time:
 		best_time = time

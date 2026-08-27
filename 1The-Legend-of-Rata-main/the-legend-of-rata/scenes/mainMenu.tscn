@@ -15,8 +15,8 @@ grow_vertical = 2
 script = ExtResource("1_qkhwq")
 
 [node name="ShoreForMenu" type="Sprite2D" parent="." unique_id=1572592164]
-position = Vector2(957, 583.75)
-scale = Vector2(3.7054265, 2.9780364)
+position = Vector2(957, 574)
+scale = Vector2(3.7054265, 3.0284235)
 texture = ExtResource("2_l7wge")
 
 [node name="CanoeForMenu" type="Sprite2D" parent="." unique_id=2091280998]

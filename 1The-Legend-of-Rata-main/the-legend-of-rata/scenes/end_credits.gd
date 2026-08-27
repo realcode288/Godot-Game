@@ -1,28 +1,28 @@
 extends Control
 
-# This links your script to the new label we are about to check
+# links the script to the new label
 @onready var final_time_label: Label = $FinalTimeLabel
 
 func _ready() -> void:
-	# Only show the final score if they actually played on Speedrun Mode
+	# Onlys show the final score if they actually played on Speedrun Mode
 	if GlobalTimer.speedrun_mode:
 		final_time_label.visible = true
 		final_time_label.text = "Final Time: " + format_time(GlobalTimer.time)
 	else:
-		final_time_label.visible = false # Keep it hidden during a Normal playthrough
+		final_time_label.visible = false # Keeps the timer hidden during a Normal playthrough
 
-# Formats the final seconds into a clean time string (00:00.00)
+# Formats the final seconds into a clean look
 func format_time(seconds: float) -> String:
 	var mins = int(seconds) / 60
 	var secs = int(seconds) % 60
 	var msec = int((seconds - int(seconds)) * 100)
 	return "%02d:%02d.%02d" % [mins, secs, msec]
 
-# Your original Main Menu button function
+# Puts it back to the main menu
 func _on_button_pressed() -> void:
 	print("Returning to Main Menu")
 	
-	# Reset the speedrun values so the next run starts fresh
+	# Resets the speedrun values so the next run starts with nothing
 	GlobalTimer.speedrun_mode = false
 	GlobalTimer.running = false
 	
