@@ -3,20 +3,19 @@ extends ProgressBar
 func _ready() -> void:
 	visible = true
 	add_to_group("boss_health_bar")
-	print("PROGRESS BAR IS ALIVE AND IN THE SCENE!")
 	
-	# Force it to a visible size and position on screen
+	# Forces the bar to a visible size and position
 	size = Vector2(400, 40)
 	position = Vector2(100, 100)
 	
-	max_value = 500
+	max_value = 500 #health values
 	value = 500
 
-func show_boss_bar(current_hp: int, max_hp: int) -> void:
+func show_boss_bar(current_hp: int, max_hp: int) -> void:# shows the bar if the boss is still alive
 	max_value = max_hp
 	value = current_hp
 
-func update_health(current_hp: int, max_hp: int) -> void:
+func update_health(current_hp: int, max_hp: int) -> void: #shows the hp
 	max_value = max_hp
 	value = current_hp
 	if current_hp <= 0:
