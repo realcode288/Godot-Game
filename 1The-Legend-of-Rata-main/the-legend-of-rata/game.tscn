@@ -1026,8 +1026,7 @@ offset_right = 296.0
 offset_bottom = 47.0
 text = "W = Jump
 A = <-
-D = ->
-Space = Attack"
+D = ->"
 
 [node name="Label2" type="Label" parent="." unique_id=48095033]
 offset_left = 566.0
@@ -1066,6 +1065,14 @@ position = Vector2(-254.5, 44.375)
 shape = SubResource("RectangleShape2D_vcs13")
 
 [node name="SpeedrunUI" parent="." unique_id=2115951698 instance=ExtResource("14_215e1")]
+
+[node name="Label3" type="Label" parent="." unique_id=1317536226]
+offset_left = 4472.0
+offset_top = -1352.0
+offset_right = 4679.0
+offset_bottom = -1079.0
+theme_override_font_sizes/font_size = 20
+text = "Press Space to Attack"
 
 [connection signal="body_exited" from="BossAreaBounds" to="Ogre" method="_on_boss_area_bounds_body_exited"]
 

@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://ct6s75mskuybi"]
 
 [ext_resource type="Script" uid="uid://c17un7jlo7j6j" path="res://scenes/end_credits.gd" id="1_dhn2b"]
+[ext_resource type="Texture2D" uid="uid://b3k150ogd2wq3" path="res://assets/free_volcano_tileset/images/Actual background.jpg" id="2_240hb"]
+[ext_resource type="Texture2D" uid="uid://bgr6eig7v3hnh" path="res://assets/New Zealand.png" id="3_55m7m"]
 
 [node name="End Credits" type="Control" unique_id=1844054488]
 layout_mode = 3
@@ -10,6 +12,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_dhn2b")
+
+[node name="ActualBackground" type="Sprite2D" parent="." unique_id=763397706]
+position = Vector2(968.99994, 594.99994)
+scale = Vector2(3.2906203, 3.5716417)
+texture = ExtResource("2_240hb")
 
 [node name="Label" type="Label" parent="." unique_id=873628368]
 layout_mode = 0
@@ -26,6 +33,7 @@ Tutorials: Brackeys Nodes and GDScript Learning
 Music: Choisic.com - Labyrinth of Lost Dreams - Darren Curtis
 Easy-Peasy
 Itch.io
+istock
 Godot Forum
 Retronator
 remove.bg
@@ -52,8 +60,20 @@ theme_override_font_sizes/font_size = 50
 text = "Exit to Title Screen"
 
 [node name="FinalTimeLabel" type="Label" parent="." unique_id=1931444944]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.116000004
+anchor_top = 0.402
+anchor_right = 0.35300002
+anchor_bottom = 0.63900006
+offset_left = -17.720001
+offset_top = -0.16000366
+offset_right = -0.76000977
+offset_bottom = 23.879944
+theme_override_font_sizes/font_size = 50
+
+[node name="NewZealand" type="Sprite2D" parent="." unique_id=1797926253]
+position = Vector2(1616, 764)
+texture = ExtResource("3_55m7m")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
