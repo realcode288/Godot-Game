@@ -38,7 +38,8 @@ theme_override_font_sizes/font_size = 75
 text = "W - Jump
 A - Move Left
 D - Move Right
-Space - Attack"
+Space - Attack
+Esc - Respawn"
 
 [node name="Button" type="Button" parent="." unique_id=256010059]
 layout_mode = 0
