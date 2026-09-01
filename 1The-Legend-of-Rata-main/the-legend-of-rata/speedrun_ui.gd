@@ -14,7 +14,7 @@ func _process(_delta: float) -> void: #this displays the timer on the screen
 		timer_label.text = format_time(GlobalTimer.time)
 
 func format_time(seconds: float) -> String: # this is just the timer system
-	var mins = int(seconds) / 60
+	var mins = seconds / 60
 	var secs = int(seconds) % 60
 	var msec = int((seconds - int(seconds)) * 100)
 	return "%02d:%02d.%02d" % [mins, secs, msec]
