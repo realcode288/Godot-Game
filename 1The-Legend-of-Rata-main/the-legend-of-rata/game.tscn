@@ -1029,6 +1029,9 @@ offset_bottom = -1079.0
 theme_override_font_sizes/font_size = 20
 text = "Press Space to Attack"
 
+[node name="Checkpoint10" parent="." unique_id=1927498687 instance=ExtResource("4_fc0e3")]
+position = Vector2(16, -10)
+
 [connection signal="body_exited" from="BossAreaBounds" to="Ogre" method="_on_boss_area_bounds_body_exited"]
 
 [editable path="player"]
