@@ -15,7 +15,7 @@ func show_boss_bar(current_hp: int, max_hp: int) -> void:# shows the bar if the 
 	max_value = max_hp
 	value = current_hp
 
-func update_health(current_hp: int, max_hp: int) -> void: #shows the hp
+func update_health(current_hp: int, max_hp: int) -> void: #shows the hp and how much it is at
 	max_value = max_hp
 	value = current_hp
 	if current_hp <= 0:
