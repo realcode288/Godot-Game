@@ -1,30 +1,28 @@
 extends CharacterBody2D
 
-@export var max_health: int = 100
-var current_health: int
-var player = null 
-var is_dead: bool = false 
-
-@export var speed: float = 60.0
-@export var chase_range: float = 250.0 
-@export var sprite_faces_left: bool = true 
-
-# Safety net: Triggers defeat if the ogre falls past this Y-coordinate (adjust in Inspector if needed)
-@export var death_y_boundary: float = 800.0 
+signal health_changed(current_health, max_health)
 
 # Preload the portal scene to spawn upon defeat
 const PORTAL_SCENE = preload("res://scenes/endportal.tscn")
+
+@export var max_health: int = 100
+@export var speed: float = 60.0
+@export var chase_range: float = 250.0 
+@export var sprite_faces_left: bool = true 
+# Safety net: Triggers defeat if the ogre falls past this Y-coordinate (adjust in Inspector if needed)
+@export var death_y_boundary: float = 800.0 
 
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var detection_area = get_node_or_null("DetectionArea") 
 @onready var ogre_hitbox = get_node_or_null("OgreHitbox")       
 
+var current_health: int
+var player = null 
+var is_dead: bool = false 
 var default_detection_x: float = 0.0
 var default_hitbox_x: float = 0.0
 var last_direction: float = 1.0
 var last_safe_position: Vector2 = Vector2.ZERO # Tracks where it was safe before falling
-
-signal health_changed(current_health, max_health)
 
 func _ready() -> void: #Sets the current health to the maximum health value when the node enters the scene tree and emits the health changed signal.
 	current_health = max_health

@@ -21,11 +21,13 @@ var shake_decay: float = 15.0
 var invincibility_duration: float = 1.0 
 var invincibility_time_left: float = 0.0
 
+
 # Functions go here
 func _ready() -> void:
 	add_to_group("player") #sets the hitbox
 	if hitbox_shape:
 		hitbox_shape.disabled = true
+
 
 func _process(delta: float) -> void: # code for the camera shaking
 	if camera and shake_intensity > 0:
@@ -44,6 +46,7 @@ func _process(delta: float) -> void: # code for the camera shaking
 			animated_sprite.visible = true
 	else:
 		animated_sprite.visible = true
+
 
 func _physics_process(delta: float) -> void: # makes you not able to jump in the air
 	if not is_on_floor():
@@ -76,6 +79,17 @@ func _physics_process(delta: float) -> void: # makes you not able to jump in the
 	move_and_slide()
 	update_animations()
 
+
+func _unhandled_input(event: InputEvent) -> void: # respawn function
+	if event.is_action_pressed("ui_cancel"): 
+		respawn()
+
+
+func _input(event: InputEvent) -> void: # takes damage from 
+	if event is InputEventKey and event.pressed and event.keycode == KEY_K:
+		take_damage()
+
+
 func update_animations() -> void: # plays the attack animation
 	if is_hurt:
 		return 
@@ -92,6 +106,7 @@ func update_animations() -> void: # plays the attack animation
 		else:
 			animated_sprite.play("idle")
 
+
 func start_attack() -> void: 
 	is_attacking = true
 	
@@ -106,6 +121,7 @@ func start_attack() -> void:
 	await get_tree().create_timer(0.1).timeout
 	if is_attacking:
 		is_attacking = false
+
 
 func take_damage(attacker_position: Vector2 = Vector2.ZERO, forced_direction: float = 0.0) -> void: #knocks the player back
 	if is_hurt or is_invincible: 
@@ -135,11 +151,13 @@ func take_damage(attacker_position: Vector2 = Vector2.ZERO, forced_direction: fl
 		
 	velocity.y = -120
 
+
 func _on_animated_sprite_2d_animation_finished() -> void: # finishes the attack and hurt animations
 	if animated_sprite.animation == "attack":
 		is_attacking = false
 	elif animated_sprite.animation == "hurt":
 		is_hurt = false
+
 
 func respawn() -> void: # killzone respawns you at the last checkpoint you touched
 	if GameManager.last_checkpoint_position != Vector2.ZERO:
@@ -147,15 +165,8 @@ func respawn() -> void: # killzone respawns you at the last checkpoint you touch
 		velocity = Vector2.ZERO 
 	else:
 		get_tree().call_deferred("reload_current_scene")
-		
-func _unhandled_input(event: InputEvent) -> void: # respawn function
-	if event.is_action_pressed("ui_cancel"): 
-		respawn()
 
-func _input(event: InputEvent) -> void: # takes damage from 
-	if event is InputEventKey and event.pressed and event.keycode == KEY_K:
-		take_damage()
-		
+
 func die() -> void:
 	print("Player died!")
 	
