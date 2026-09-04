@@ -11,6 +11,6 @@ func play_normal_music() -> void: # plays music as soon as the game starts
 
 func play_boss_music() -> void: # playes the boss music when you enter the arena
 	if stream != BOSS_MUSIC:
-		stop()              # Stops whatever is currently playing to play the new music
+		stop()              # Stops whatever is currently playing
 		stream = BOSS_MUSIC
 		play()

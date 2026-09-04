@@ -152,7 +152,7 @@ func _unhandled_input(event: InputEvent) -> void: # respawn function
 	if event.is_action_pressed("ui_cancel"): 
 		respawn()
 
-func _input(event: InputEvent) -> void: # takes damage from pressing the k key
+func _input(event: InputEvent) -> void: # takes damage from 
 	if event is InputEventKey and event.pressed and event.keycode == KEY_K:
 		take_damage()
 		

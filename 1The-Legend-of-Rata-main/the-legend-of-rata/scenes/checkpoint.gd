@@ -9,6 +9,6 @@ func _on_body_entered(body: Node2D) -> void:
 	if is_activated:
 		return
 	
-	if "Player" in body.name or body is CharacterBody2D: # saves the last checkpoint position the player touched
+	if "Player" in body.name or body is CharacterBody2D: # saves the last checkpoint position
 		GameManager.last_checkpoint_position = spawn_point.global_position
 		is_activated = true
